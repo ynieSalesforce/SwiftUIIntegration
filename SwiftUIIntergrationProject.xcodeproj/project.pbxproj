@@ -22,6 +22,7 @@
 		9BD0A8E32BBE185700953018 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8E22BBE185700953018 /* SnapKit */; };
 		9BD0A8E62BBE188000953018 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8E52BBE188000953018 /* Quick */; };
 		9BD0A8E92BBE18AE00953018 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8E82BBE18AE00953018 /* Nimble */; };
+		9BD0A8EB2BBE1A4400953018 /* OpenWeatherAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A8EA2BBE1A4400953018 /* OpenWeatherAPIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		9BBD8D122BBC561000A5F295 /* SwiftUIIntergrationProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIIntergrationProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBD8D162BBC561000A5F295 /* SwiftUIIntergrationProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIIntergrationProjectUITests.swift; sourceTree = "<group>"; };
 		9BBD8D182BBC561000A5F295 /* SwiftUIIntergrationProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIIntergrationProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9BD0A8EA2BBE1A4400953018 /* OpenWeatherAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				9BBD8D252BBC56A900A5F295 /* MainMenu */,
 				9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */,
+				9BD0A8EA2BBE1A4400953018 /* OpenWeatherAPIKey.swift */,
 				9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */,
 				9BBD8CFB2BBC560F00A5F295 /* Main.storyboard */,
 				9BBD8CFE2BBC561000A5F295 /* Assets.xcassets */,
@@ -298,6 +301,7 @@
 				9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */,
 				9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */,
 				9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */,
+				9BD0A8EB2BBE1A4400953018 /* OpenWeatherAPIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
