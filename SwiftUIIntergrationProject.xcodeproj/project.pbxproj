@@ -19,6 +19,9 @@
 		9BBD8D282BBC5B0300A5F295 /* PreviewSnapshots in Frameworks */ = {isa = PBXBuildFile; productRef = 9BBD8D272BBC5B0300A5F295 /* PreviewSnapshots */; };
 		9BBD8D2A2BBC5B0300A5F295 /* PreviewSnapshotsTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 9BBD8D292BBC5B0300A5F295 /* PreviewSnapshotsTesting */; };
 		9BBD8D2D2BBC5B3000A5F295 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 9BBD8D2C2BBC5B3000A5F295 /* ComposableArchitecture */; };
+		9BD0A8E32BBE185700953018 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8E22BBE185700953018 /* SnapKit */; };
+		9BD0A8E62BBE188000953018 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8E52BBE188000953018 /* Quick */; };
+		9BD0A8E92BBE18AE00953018 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8E82BBE18AE00953018 /* Nimble */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +62,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD0A8E92BBE18AE00953018 /* Nimble in Frameworks */,
+				9BD0A8E32BBE185700953018 /* SnapKit in Frameworks */,
 				9BBD8D2D2BBC5B3000A5F295 /* ComposableArchitecture in Frameworks */,
+				9BD0A8E62BBE188000953018 /* Quick in Frameworks */,
 				9BBD8D282BBC5B0300A5F295 /* PreviewSnapshots in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +166,9 @@
 			packageProductDependencies = (
 				9BBD8D272BBC5B0300A5F295 /* PreviewSnapshots */,
 				9BBD8D2C2BBC5B3000A5F295 /* ComposableArchitecture */,
+				9BD0A8E22BBE185700953018 /* SnapKit */,
+				9BD0A8E52BBE188000953018 /* Quick */,
+				9BD0A8E82BBE18AE00953018 /* Nimble */,
 			);
 			productName = SwiftUIIntergrationProject;
 			productReference = 9BBD8CF22BBC560F00A5F295 /* SwiftUIIntergrationProject.app */;
@@ -239,6 +248,9 @@
 			packageReferences = (
 				9BBD8D262BBC5B0300A5F295 /* XCRemoteSwiftPackageReference "swiftui-preview-snapshots" */,
 				9BBD8D2B2BBC5B3000A5F295 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				9BD0A8E12BBE185700953018 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				9BD0A8E42BBE188000953018 /* XCRemoteSwiftPackageReference "Quick" */,
+				9BD0A8E72BBE18AE00953018 /* XCRemoteSwiftPackageReference "Nimble" */,
 			);
 			productRefGroup = 9BBD8CF32BBC560F00A5F295 /* Products */;
 			projectDirPath = "";
@@ -650,6 +662,30 @@
 				minimumVersion = 1.9.2;
 			};
 		};
+		9BD0A8E12BBE185700953018 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		9BD0A8E42BBE188000953018 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		9BD0A8E72BBE18AE00953018 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -667,6 +703,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9BBD8D2B2BBC5B3000A5F295 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		9BD0A8E22BBE185700953018 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BD0A8E12BBE185700953018 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		9BD0A8E52BBE188000953018 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BD0A8E42BBE188000953018 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		9BD0A8E82BBE18AE00953018 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BD0A8E72BBE18AE00953018 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
