@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1FE3602BC092DA00F0A259 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1FE35F2BC092DA00F0A259 /* Alamofire */; };
+		9B1FE3622BC0946300F0A259 /* LoadCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3612BC0946300F0A259 /* LoadCriteria.swift */; };
+		9B1FE3652BC0A09200F0A259 /* Addresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3642BC0A09200F0A259 /* Addresses.swift */; };
+		9B1FE3672BC0A0FD00F0A259 /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */; };
 		9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */; };
 		9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */; };
 		9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF92BBC560F00A5F295 /* ViewController.swift */; };
@@ -27,6 +31,9 @@
 		9BD0A8FA2BBFA01400953018 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8F92BBFA01400953018 /* ReactiveCocoa */; };
 		9BD0A8FC2BBFA02800953018 /* ReactiveSwift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A8FB2BBFA02800953018 /* ReactiveSwift+Extensions.swift */; };
 		9BD0A8FF2BBFA8DE00953018 /* NavigationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A8FE2BBFA8DE00953018 /* NavigationHandler.swift */; };
+		9BD0A9022BC08ADA00953018 /* UIKitReactiveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A9012BC08ADA00953018 /* UIKitReactiveController.swift */; };
+		9BD0A9042BC08C2C00953018 /* ReactiveSwiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A9032BC08C2C00953018 /* ReactiveSwiftViewModel.swift */; };
+		9BD0A9072BC08CFB00953018 /* WeatherServiceReactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A9062BC08CFB00953018 /* WeatherServiceReactive.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B1FE3612BC0946300F0A259 /* LoadCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCriteria.swift; sourceTree = "<group>"; };
+		9B1FE3642BC0A09200F0A259 /* Addresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addresses.swift; sourceTree = "<group>"; };
+		9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; };
 		9BBD8CF22BBC560F00A5F295 /* SwiftUIIntergrationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIIntergrationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +74,9 @@
 		9BD0A8EF2BBF996F00953018 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		9BD0A8FB2BBFA02800953018 /* ReactiveSwift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactiveSwift+Extensions.swift"; sourceTree = "<group>"; };
 		9BD0A8FE2BBFA8DE00953018 /* NavigationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHandler.swift; sourceTree = "<group>"; };
+		9BD0A9012BC08ADA00953018 /* UIKitReactiveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitReactiveController.swift; sourceTree = "<group>"; };
+		9BD0A9032BC08C2C00953018 /* ReactiveSwiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveSwiftViewModel.swift; sourceTree = "<group>"; };
+		9BD0A9062BC08CFB00953018 /* WeatherServiceReactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceReactive.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BD0A8F42BBF9E4200953018 /* Overture in Frameworks */,
+				9B1FE3602BC092DA00F0A259 /* Alamofire in Frameworks */,
 				9BD0A8FA2BBFA01400953018 /* ReactiveCocoa in Frameworks */,
 				9BD0A8F72BBF9F5400953018 /* ReactiveSwift in Frameworks */,
 				9BD0A8E32BBE185700953018 /* SnapKit in Frameworks */,
@@ -98,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B1FE3632BC0A08600F0A259 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B1FE3642BC0A09200F0A259 /* Addresses.swift */,
+				9B1FE3612BC0946300F0A259 /* LoadCriteria.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9BBD8CE92BBC560F00A5F295 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +144,9 @@
 		9BBD8CF42BBC560F00A5F295 /* SwiftUIIntergrationProject */ = {
 			isa = PBXGroup;
 			children = (
+				9B1FE3632BC0A08600F0A259 /* Model */,
+				9BD0A9052BC08C3700953018 /* Service */,
+				9BD0A9002BC088CA00953018 /* UIKitReactiveSwift */,
 				9BD0A8FD2BBFA27100953018 /* Navigation */,
 				9BD0A8F12BBF9C1F00953018 /* ReactiveSwiftExtensions */,
 				9BD0A8EE2BBF995800953018 /* Constants */,
@@ -185,6 +211,24 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		9BD0A9002BC088CA00953018 /* UIKitReactiveSwift */ = {
+			isa = PBXGroup;
+			children = (
+				9BD0A9012BC08ADA00953018 /* UIKitReactiveController.swift */,
+				9BD0A9032BC08C2C00953018 /* ReactiveSwiftViewModel.swift */,
+			);
+			path = UIKitReactiveSwift;
+			sourceTree = "<group>";
+		};
+		9BD0A9052BC08C3700953018 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9BD0A9062BC08CFB00953018 /* WeatherServiceReactive.swift */,
+				9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +252,7 @@
 				9BD0A8F32BBF9E4200953018 /* Overture */,
 				9BD0A8F62BBF9F5400953018 /* ReactiveSwift */,
 				9BD0A8F92BBFA01400953018 /* ReactiveCocoa */,
+				9B1FE35F2BC092DA00F0A259 /* Alamofire */,
 			);
 			productName = SwiftUIIntergrationProject;
 			productReference = 9BBD8CF22BBC560F00A5F295 /* SwiftUIIntergrationProject.app */;
@@ -291,6 +336,7 @@
 				9BD0A8F22BBF9E4200953018 /* XCRemoteSwiftPackageReference "swift-overture" */,
 				9BD0A8F52BBF9F5400953018 /* XCRemoteSwiftPackageReference "ReactiveSwift" */,
 				9BD0A8F82BBFA01400953018 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
+				9BD0A9082BC0908F00953018 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 9BBD8CF32BBC560F00A5F295 /* Products */;
 			projectDirPath = "";
@@ -334,13 +380,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD0A9022BC08ADA00953018 /* UIKitReactiveController.swift in Sources */,
 				9BD0A8FF2BBFA8DE00953018 /* NavigationHandler.swift in Sources */,
+				9BD0A9072BC08CFB00953018 /* WeatherServiceReactive.swift in Sources */,
 				9BD0A8FC2BBFA02800953018 /* ReactiveSwift+Extensions.swift in Sources */,
+				9B1FE3622BC0946300F0A259 /* LoadCriteria.swift in Sources */,
+				9B1FE3652BC0A09200F0A259 /* Addresses.swift in Sources */,
 				9BD0A8ED2BBE1C7100953018 /* MainMenuView.swift in Sources */,
 				9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */,
 				9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */,
 				9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */,
+				9BD0A9042BC08C2C00953018 /* ReactiveSwiftViewModel.swift in Sources */,
 				9BD0A8F02BBF996F00953018 /* CGFloat+Extensions.swift in Sources */,
+				9B1FE3672BC0A0FD00F0A259 /* AddressService.swift in Sources */,
 				9BD0A8EB2BBE1A4400953018 /* OpenWeatherAPIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -730,9 +782,22 @@
 				minimumVersion = 12.0.0;
 			};
 		};
+		9BD0A9082BC0908F00953018 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = exactVersion;
+				version = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9B1FE35F2BC092DA00F0A259 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BD0A9082BC0908F00953018 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		9BBD8D272BBC5B0300A5F295 /* PreviewSnapshots */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9BBD8D262BBC5B0300A5F295 /* XCRemoteSwiftPackageReference "swiftui-preview-snapshots" */;

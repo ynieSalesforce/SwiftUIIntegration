@@ -8,26 +8,21 @@
 import Foundation
 import UIKit
 
-enum NavigationAction {
-  case uikitView
-  case mixedView
-  case composableView
-}
-
 extension UIViewController {
-  func handle(action: NavigationAction) {
+  func handle(action: DemoType) {
     switch action {
-    case .uikitView:
+    case .uiKit:
       navigateUIKitView()
-    case .mixedView:
+    case .mix:
       navigateMixedView()
-    case .composableView:
+    case .swiftUI:
       navigateComposableView()
     }
   }
   
   private func navigateUIKitView() {
-    
+    let controller = UIKitReactiveController()
+    navigationController?.pushViewController(controller, animated: true)
   }
   
   private func navigateMixedView() {
