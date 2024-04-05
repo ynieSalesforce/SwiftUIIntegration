@@ -1,0 +1,69 @@
+//
+//  MainMenuView.swift
+//  SwiftUIIntergrationProject
+//
+//  Created by Yuchen Nie on 4/3/24.
+//
+
+import Foundation
+import SwiftUI
+
+enum DemoType {
+  case uiKit
+  case mix
+  case swiftUI
+}
+
+extension DemoType {
+  var title: String {
+    switch self {
+    case .uiKit:
+      return "UIKit and ReactiveSwift View Model"
+    case .mix:
+      return "SwiftUI with Async and Reactive Swift View Model"
+    case .swiftUI:
+      return "SwiftUI and Composable Architecture"
+    }
+  }
+}
+
+protocol MainMenuViewDelegate {
+  func navigate(to: DemoType)
+}
+
+struct MainMenuView: View {
+  private let options: [DemoType] = [.uiKit, .mix, .swiftUI]
+  let delegate: MainMenuViewDelegate?
+  
+  var body: some View {
+    VStack {
+      ForEach(options, id: \.self) { option in
+        VStack {
+          menuItemView(with: option)
+          if option != options.last {
+            Divider()
+          }
+        }
+      }
+      
+      Spacer()
+    }
+  }
+  
+  @ViewBuilder
+  private func menuItemView(with type: DemoType) -> some View {
+    HStack(alignment: .center) {
+      Text(type.title)
+        .padding([.leading, .top, .bottom], .tdsMedium)
+        .font(.title2)
+      
+      Spacer()
+      
+      Image(systemName: "chevron.right")
+        .font(.title2)
+        .padding(.trailing, .tdsMedium)
+    }.onTapGesture {
+      delegate?.navigate(to: type)
+    }
+  }
+}

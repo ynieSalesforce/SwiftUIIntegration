@@ -10,7 +10,6 @@
 		9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */; };
 		9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */; };
 		9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF92BBC560F00A5F295 /* ViewController.swift */; };
-		9BBD8CFD2BBC560F00A5F295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBD8CFB2BBC560F00A5F295 /* Main.storyboard */; };
 		9BBD8CFF2BBC561000A5F295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BBD8CFE2BBC561000A5F295 /* Assets.xcassets */; };
 		9BBD8D022BBC561000A5F295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBD8D002BBC561000A5F295 /* LaunchScreen.storyboard */; };
 		9BBD8D0D2BBC561000A5F295 /* SwiftUIIntergrationProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8D0C2BBC561000A5F295 /* SwiftUIIntergrationProjectTests.swift */; };
@@ -20,9 +19,14 @@
 		9BBD8D2A2BBC5B0300A5F295 /* PreviewSnapshotsTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 9BBD8D292BBC5B0300A5F295 /* PreviewSnapshotsTesting */; };
 		9BBD8D2D2BBC5B3000A5F295 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 9BBD8D2C2BBC5B3000A5F295 /* ComposableArchitecture */; };
 		9BD0A8E32BBE185700953018 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8E22BBE185700953018 /* SnapKit */; };
-		9BD0A8E62BBE188000953018 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8E52BBE188000953018 /* Quick */; };
-		9BD0A8E92BBE18AE00953018 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8E82BBE18AE00953018 /* Nimble */; };
 		9BD0A8EB2BBE1A4400953018 /* OpenWeatherAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A8EA2BBE1A4400953018 /* OpenWeatherAPIKey.swift */; };
+		9BD0A8ED2BBE1C7100953018 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A8EC2BBE1C7100953018 /* MainMenuView.swift */; };
+		9BD0A8F02BBF996F00953018 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A8EF2BBF996F00953018 /* CGFloat+Extensions.swift */; };
+		9BD0A8F42BBF9E4200953018 /* Overture in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8F32BBF9E4200953018 /* Overture */; };
+		9BD0A8F72BBF9F5400953018 /* ReactiveSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8F62BBF9F5400953018 /* ReactiveSwift */; };
+		9BD0A8FA2BBFA01400953018 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD0A8F92BBFA01400953018 /* ReactiveCocoa */; };
+		9BD0A8FC2BBFA02800953018 /* ReactiveSwift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A8FB2BBFA02800953018 /* ReactiveSwift+Extensions.swift */; };
+		9BD0A8FF2BBFA8DE00953018 /* NavigationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A8FE2BBFA8DE00953018 /* NavigationHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +51,6 @@
 		9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9BBD8CF92BBC560F00A5F295 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9BBD8CFC2BBC560F00A5F295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BBD8CFE2BBC561000A5F295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BBD8D012BBC561000A5F295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BBD8D032BBC561000A5F295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +60,10 @@
 		9BBD8D162BBC561000A5F295 /* SwiftUIIntergrationProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIIntergrationProjectUITests.swift; sourceTree = "<group>"; };
 		9BBD8D182BBC561000A5F295 /* SwiftUIIntergrationProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIIntergrationProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9BD0A8EA2BBE1A4400953018 /* OpenWeatherAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPIKey.swift; sourceTree = "<group>"; };
+		9BD0A8EC2BBE1C7100953018 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		9BD0A8EF2BBF996F00953018 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		9BD0A8FB2BBFA02800953018 /* ReactiveSwift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactiveSwift+Extensions.swift"; sourceTree = "<group>"; };
+		9BD0A8FE2BBFA8DE00953018 /* NavigationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +71,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BD0A8E92BBE18AE00953018 /* Nimble in Frameworks */,
+				9BD0A8F42BBF9E4200953018 /* Overture in Frameworks */,
+				9BD0A8FA2BBFA01400953018 /* ReactiveCocoa in Frameworks */,
+				9BD0A8F72BBF9F5400953018 /* ReactiveSwift in Frameworks */,
 				9BD0A8E32BBE185700953018 /* SnapKit in Frameworks */,
 				9BBD8D2D2BBC5B3000A5F295 /* ComposableArchitecture in Frameworks */,
-				9BD0A8E62BBE188000953018 /* Quick in Frameworks */,
 				9BBD8D282BBC5B0300A5F295 /* PreviewSnapshots in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,11 +121,13 @@
 		9BBD8CF42BBC560F00A5F295 /* SwiftUIIntergrationProject */ = {
 			isa = PBXGroup;
 			children = (
+				9BD0A8FD2BBFA27100953018 /* Navigation */,
+				9BD0A8F12BBF9C1F00953018 /* ReactiveSwiftExtensions */,
+				9BD0A8EE2BBF995800953018 /* Constants */,
 				9BBD8D252BBC56A900A5F295 /* MainMenu */,
 				9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */,
 				9BD0A8EA2BBE1A4400953018 /* OpenWeatherAPIKey.swift */,
 				9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */,
-				9BBD8CFB2BBC560F00A5F295 /* Main.storyboard */,
 				9BBD8CFE2BBC561000A5F295 /* Assets.xcassets */,
 				9BBD8D002BBC561000A5F295 /* LaunchScreen.storyboard */,
 				9BBD8D032BBC561000A5F295 /* Info.plist */,
@@ -146,8 +156,33 @@
 			isa = PBXGroup;
 			children = (
 				9BBD8CF92BBC560F00A5F295 /* ViewController.swift */,
+				9BD0A8EC2BBE1C7100953018 /* MainMenuView.swift */,
 			);
 			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		9BD0A8EE2BBF995800953018 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9BD0A8EF2BBF996F00953018 /* CGFloat+Extensions.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		9BD0A8F12BBF9C1F00953018 /* ReactiveSwiftExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				9BD0A8FB2BBFA02800953018 /* ReactiveSwift+Extensions.swift */,
+			);
+			path = ReactiveSwiftExtensions;
+			sourceTree = "<group>";
+		};
+		9BD0A8FD2BBFA27100953018 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				9BD0A8FE2BBFA8DE00953018 /* NavigationHandler.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,8 +205,9 @@
 				9BBD8D272BBC5B0300A5F295 /* PreviewSnapshots */,
 				9BBD8D2C2BBC5B3000A5F295 /* ComposableArchitecture */,
 				9BD0A8E22BBE185700953018 /* SnapKit */,
-				9BD0A8E52BBE188000953018 /* Quick */,
-				9BD0A8E82BBE18AE00953018 /* Nimble */,
+				9BD0A8F32BBF9E4200953018 /* Overture */,
+				9BD0A8F62BBF9F5400953018 /* ReactiveSwift */,
+				9BD0A8F92BBFA01400953018 /* ReactiveCocoa */,
 			);
 			productName = SwiftUIIntergrationProject;
 			productReference = 9BBD8CF22BBC560F00A5F295 /* SwiftUIIntergrationProject.app */;
@@ -252,8 +288,9 @@
 				9BBD8D262BBC5B0300A5F295 /* XCRemoteSwiftPackageReference "swiftui-preview-snapshots" */,
 				9BBD8D2B2BBC5B3000A5F295 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				9BD0A8E12BBE185700953018 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				9BD0A8E42BBE188000953018 /* XCRemoteSwiftPackageReference "Quick" */,
-				9BD0A8E72BBE18AE00953018 /* XCRemoteSwiftPackageReference "Nimble" */,
+				9BD0A8F22BBF9E4200953018 /* XCRemoteSwiftPackageReference "swift-overture" */,
+				9BD0A8F52BBF9F5400953018 /* XCRemoteSwiftPackageReference "ReactiveSwift" */,
+				9BD0A8F82BBFA01400953018 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
 			);
 			productRefGroup = 9BBD8CF32BBC560F00A5F295 /* Products */;
 			projectDirPath = "";
@@ -273,7 +310,6 @@
 			files = (
 				9BBD8D022BBC561000A5F295 /* LaunchScreen.storyboard in Resources */,
 				9BBD8CFF2BBC561000A5F295 /* Assets.xcassets in Resources */,
-				9BBD8CFD2BBC560F00A5F295 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,9 +334,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD0A8FF2BBFA8DE00953018 /* NavigationHandler.swift in Sources */,
+				9BD0A8FC2BBFA02800953018 /* ReactiveSwift+Extensions.swift in Sources */,
+				9BD0A8ED2BBE1C7100953018 /* MainMenuView.swift in Sources */,
 				9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */,
 				9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */,
 				9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */,
+				9BD0A8F02BBF996F00953018 /* CGFloat+Extensions.swift in Sources */,
 				9BD0A8EB2BBE1A4400953018 /* OpenWeatherAPIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,14 +378,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9BBD8CFB2BBC560F00A5F295 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9BBD8CFC2BBC560F00A5F295 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9BBD8D002BBC561000A5F295 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -488,7 +520,7 @@
 				INFOPLIST_FILE = SwiftUIIntergrationProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -516,7 +548,7 @@
 				INFOPLIST_FILE = SwiftUIIntergrationProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -674,20 +706,28 @@
 				minimumVersion = 5.7.1;
 			};
 		};
-		9BD0A8E42BBE188000953018 /* XCRemoteSwiftPackageReference "Quick" */ = {
+		9BD0A8F22BBF9E4200953018 /* XCRemoteSwiftPackageReference "swift-overture" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Quick";
+			repositoryURL = "https://github.com/pointfreeco/swift-overture";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
 			};
 		};
-		9BD0A8E72BBE18AE00953018 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+		9BD0A8F52BBF9F5400953018 /* XCRemoteSwiftPackageReference "ReactiveSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Nimble";
+			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveSwift";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.1;
+			};
+		};
+		9BD0A8F82BBFA01400953018 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -713,15 +753,20 @@
 			package = 9BD0A8E12BBE185700953018 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		9BD0A8E52BBE188000953018 /* Quick */ = {
+		9BD0A8F32BBF9E4200953018 /* Overture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9BD0A8E42BBE188000953018 /* XCRemoteSwiftPackageReference "Quick" */;
-			productName = Quick;
+			package = 9BD0A8F22BBF9E4200953018 /* XCRemoteSwiftPackageReference "swift-overture" */;
+			productName = Overture;
 		};
-		9BD0A8E82BBE18AE00953018 /* Nimble */ = {
+		9BD0A8F62BBF9F5400953018 /* ReactiveSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9BD0A8E72BBE18AE00953018 /* XCRemoteSwiftPackageReference "Nimble" */;
-			productName = Nimble;
+			package = 9BD0A8F52BBF9F5400953018 /* XCRemoteSwiftPackageReference "ReactiveSwift" */;
+			productName = ReactiveSwift;
+		};
+		9BD0A8F92BBFA01400953018 /* ReactiveCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BD0A8F82BBFA01400953018 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
+			productName = ReactiveCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
