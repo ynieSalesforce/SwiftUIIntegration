@@ -9,16 +9,13 @@ import Foundation
 import MapKit
 
 struct LoadCriteria {
-  let address: String
   let location: CLLocation
   
-  init(address: String, location: CLLocation) {
-    self.address = address
+  init(location: CLLocation) {
     self.location = location
   }
   
-  init(address: String, location: CLLocationCoordinate2D) {
-    self.address = address
+  init(location: CLLocationCoordinate2D) {
     self.location = .init(latitude: location.latitude, longitude: location.longitude)
   }
 }

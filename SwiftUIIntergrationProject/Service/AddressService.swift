@@ -9,21 +9,31 @@ import Foundation
 import MapKit
 import ReactiveSwift
 
+
+
 struct AddressService {
-  static func coordinates(from addresses: [String]) async -> [String: CLLocationCoordinate2D] {
+  var coordinates: (String) -> ValueSignalProducer<CLLocation?> = coordinates
+  var asyncCoordinate: (String) async -> CLLocationCoordinate2D? = asyncCoordinate
+}
+
+extension AddressService {
+  static var live = AddressService()
+}
+
+extension AddressService {
+  static func coordinates(from addresses: [String]) async -> [CLLocationCoordinate2D] {
     await withTaskGroup(of: (String, CLLocationCoordinate2D?).self) { group in
       for address in addresses {
-        group.addTask { await (address, getCoordinate(from: address)) }
+        group.addTask { await (address, asyncCoordinate(from: address)) }
       }
       
-      return await group.reduce(into: [:]) { dictionary, result in
+      return await group.reduce(into: []) { dictionary, result in
         guard let address = result.1 else { return }
-        dictionary[result.0] = address
       }
     }
   }
   
-  static func getCoordinate(from address: String) async -> CLLocationCoordinate2D? {
+  static func asyncCoordinate(from address: String) async -> CLLocationCoordinate2D? {
     let geocoder = CLGeocoder()
     
     guard let location = try? await geocoder.geocodeAddressString(address)
@@ -36,17 +46,17 @@ struct AddressService {
     return location.coordinate
   }
   
-  static func coordinates(from address: String) -> Signal<CLLocation?, Never>{
-    let geoCoder = CLGeocoder()
-    let (signal, observer) = Signal<CLLocation?, Never>.pipe()
-    geoCoder.geocodeAddressString(address) { (placemarks, error) in
-      guard let placemarks = placemarks,
-            let location = placemarks.first?.location else {
-        observer.send(value: nil)
-        return
+  static func coordinates(from address: String) -> ValueSignalProducer<CLLocation?>{
+    return ValueSignalProducer<CLLocation?> { observer, _ in
+      let geoCoder = CLGeocoder()
+      geoCoder.geocodeAddressString(address) { (placemarks, error) in
+        guard let placemarks = placemarks,
+              let location = placemarks.first?.location else {
+          observer.send(value: nil)
+          return
+        }
+        observer.send(value: location)
       }
-      observer.send(value: location)
     }
-    return signal
   }
 }
