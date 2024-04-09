@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: MainMenuViewDelegate {
-  func navigate(to: DemoType) {
-    
+  func navigate(to destination: DemoType) {
+    handle(action: destination)
   }
 }

@@ -28,7 +28,7 @@ extension DemoType {
 }
 
 protocol MainMenuViewDelegate {
-  func navigate(to: DemoType)
+  func navigate(to destination: DemoType)
 }
 
 struct MainMenuView: View {

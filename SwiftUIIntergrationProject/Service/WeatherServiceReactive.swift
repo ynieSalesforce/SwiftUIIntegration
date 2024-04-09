@@ -68,7 +68,7 @@ private func url(path: String, loadCriteria: LoadCriteria) -> URL? {
   components.path = "/data/2.5/\(path)"
   components.queryItems = [
     URLQueryItem(name: "lat", value: "\(loadCriteria.location.coordinate.latitude)"),
-    URLQueryItem(name: "long", value: "\(loadCriteria.location.coordinate.longitude)"),
+    URLQueryItem(name: "lon", value: "\(loadCriteria.location.coordinate.longitude)"),
     URLQueryItem(name: "appid", value: openWeatherAPIKey),
     URLQueryItem(name: "units", value: "imperial")
   ]

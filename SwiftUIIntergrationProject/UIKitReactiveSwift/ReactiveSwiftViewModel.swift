@@ -10,7 +10,7 @@ import Overture
 import ReactiveSwift
 import MapKit
 
-struct FeedDetailViewModel {
+struct ReactiveSwiftViewModel {
   struct Input {
     let baseInput: BaseDataViewModelInput
     let location: String
@@ -24,7 +24,7 @@ struct FeedDetailViewModel {
     let dataLoadError: Signal<Error, Never>
   }
   
-  static func create(input: FeedDetailViewModel.Input) -> FeedDetailViewModel.Output {
+  static func create(input: ReactiveSwiftViewModel.Input) -> ReactiveSwiftViewModel.Output {
     let scheduler = Environment.current.scheduler
     let onLoad = input.baseInput.lifeCycle.viewDidLoadProperty.signal.observe(on: scheduler)
     let onRefresh = input.baseInput.refresh.observe(on: scheduler)
