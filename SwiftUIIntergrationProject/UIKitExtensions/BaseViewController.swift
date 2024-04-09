@@ -9,6 +9,7 @@ import Foundation
 import ReactiveSwift
 import UIKit
 import Overture
+import SnapKit
 
 /**
  BaseViewController is the base class for all view controllers
@@ -18,6 +19,7 @@ import Overture
 class BaseViewController: UIViewController {
   lazy var refreshControl = RefreshControl()
   let lifecycle = ViewLifeCycle()
+  lazy var loadingView: LoadingViewUIKit = .init()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,6 +32,10 @@ class BaseViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.isNavigationBarHidden = false
+    view.addSubview(loadingView)
+    loadingView.snp.updateConstraints { make in
+      make.edges.equalToSuperview()
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -88,18 +94,11 @@ final class RefreshControl: UIRefreshControl {
   
   override init() {
     super.init()
-    configureUI()
     refresh = reactive.controlEvents(.valueChanged).ignoreValues()
   }
   
   required init?(coder _: NSCoder) {
     nil
-  }
-  
-  private func configureUI() {
-      // refresh control
-    backgroundColor = .clear
-    tintColor = .clear
   }
 }
 

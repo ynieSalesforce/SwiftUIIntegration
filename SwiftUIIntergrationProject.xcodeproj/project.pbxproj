@@ -22,6 +22,8 @@
 		9B1FE37B2BC4D50600F0A259 /* WeatherSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE37A2BC4D50500F0A259 /* WeatherSectionHeader.swift */; };
 		9B1FE37D2BC4D52F00F0A259 /* WeatherForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE37C2BC4D52F00F0A259 /* WeatherForecastCell.swift */; };
 		9B1FE37F2BC4D59600F0A259 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE37E2BC4D59600F0A259 /* Reusable.swift */; };
+		9B1FE3812BC4FDC600F0A259 /* LoadingViewUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3802BC4FDC600F0A259 /* LoadingViewUIKit.swift */; };
+		9B1FE3832BC5001600F0A259 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3822BC5001600F0A259 /* UITableView.swift */; };
 		9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */; };
 		9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */; };
 		9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF92BBC560F00A5F295 /* ViewController.swift */; };
@@ -79,6 +81,8 @@
 		9B1FE37A2BC4D50500F0A259 /* WeatherSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSectionHeader.swift; sourceTree = "<group>"; };
 		9B1FE37C2BC4D52F00F0A259 /* WeatherForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastCell.swift; sourceTree = "<group>"; };
 		9B1FE37E2BC4D59600F0A259 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		9B1FE3802BC4FDC600F0A259 /* LoadingViewUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewUIKit.swift; sourceTree = "<group>"; };
+		9B1FE3822BC5001600F0A259 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		9BBD8CF22BBC560F00A5F295 /* SwiftUIIntergrationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIIntergrationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			children = (
 				9B1FE36D2BC4990400F0A259 /* BaseViewController.swift */,
 				9B1FE37E2BC4D59600F0A259 /* Reusable.swift */,
+				9B1FE3822BC5001600F0A259 /* UITableView.swift */,
 			);
 			path = UIKitExtensions;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			children = (
 				9B1FE37A2BC4D50500F0A259 /* WeatherSectionHeader.swift */,
 				9B1FE37C2BC4D52F00F0A259 /* WeatherForecastCell.swift */,
+				9B1FE3802BC4FDC600F0A259 /* LoadingViewUIKit.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -434,6 +440,7 @@
 				9B1FE36B2BC497EA00F0A259 /* Environment.swift in Sources */,
 				9BD0A8FF2BBFA8DE00953018 /* NavigationHandler.swift in Sources */,
 				9B1FE37F2BC4D59600F0A259 /* Reusable.swift in Sources */,
+				9B1FE3832BC5001600F0A259 /* UITableView.swift in Sources */,
 				9BD0A9072BC08CFB00953018 /* WeatherServiceReactive.swift in Sources */,
 				9BD0A8FC2BBFA02800953018 /* ReactiveSwift+Extensions.swift in Sources */,
 				9B1FE3622BC0946300F0A259 /* LoadCriteria.swift in Sources */,
@@ -445,6 +452,7 @@
 				9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */,
 				9B1FE3702BC4996C00F0A259 /* Functions.swift in Sources */,
 				9B1FE3762BC49BD000F0A259 /* WeatherDisplayData.swift in Sources */,
+				9B1FE3812BC4FDC600F0A259 /* LoadingViewUIKit.swift in Sources */,
 				9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */,
 				9B1FE3692BC0EE0500F0A259 /* ForecastDisplayData.swift in Sources */,
 				9BD0A9042BC08C2C00953018 /* ReactiveSwiftViewModel.swift in Sources */,

@@ -28,6 +28,7 @@ class UIKitReactiveController: BaseViewController {
     tableView.rowHeight = UITableView.automaticDimension
     
     self.view.addSubview(tableView)
+    tableView.refreshControl = refreshControl
     return tableView
   }()
   
@@ -50,6 +51,7 @@ class UIKitReactiveController: BaseViewController {
     reactive.currentWeatherData <~ output.currentWeather
     reactive.forecastData <~ output.forecastDisplayData
     refreshControl.reactive.isRefreshing <~ output.isRefreshing.observeForTableView()
+    reactive.isLoading <~ output.dataLoading
   }
   
   fileprivate func handleCurrentWeatherData(with currentWeather: CurrentWeatherDisplayData) {
@@ -96,32 +98,12 @@ private extension Reactive where Base: UIKitReactiveController {
       vc.handleForecastWeatherData(with: data)
     }
   }
-}
-
-public extension UITableView {
-  final func register<T: UITableViewCell>(cellType: T.Type)
-  where T: Reusable {
-    register(cellType.self, forCellReuseIdentifier: cellType.reuseIdentifier)
-  }
   
-  final func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath, cellType: T.Type = T.self) -> T
-  where T: Reusable {
-    guard let cell = dequeueReusableCell(withIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
-      fatalError()
+  var isLoading: BindingTarget<(Bool, Bool)> {
+    makeBindingTarget { vc, data in
+      if !data.0, !data.1 {
+        vc.loadingView.removeFromSuperview()
+      }
     }
-    return cell
-  }
-  
-  final func register<T: UITableViewHeaderFooterView>(headerFooterViewType: T.Type)
-  where T: Reusable {
-    register(headerFooterViewType.self, forHeaderFooterViewReuseIdentifier: headerFooterViewType.reuseIdentifier)
-  }
-  
-  final func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(_ viewType: T.Type = T.self) -> T?
-  where T: Reusable {
-    guard let view = dequeueReusableHeaderFooterView(withIdentifier: viewType.reuseIdentifier) as? T? else {
-      fatalError()
-    }
-    return view
   }
 }

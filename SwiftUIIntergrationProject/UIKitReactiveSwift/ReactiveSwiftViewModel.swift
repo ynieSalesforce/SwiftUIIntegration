@@ -19,7 +19,7 @@ struct ReactiveSwiftViewModel {
   struct Output {
     let currentWeather: Signal<CurrentWeatherDisplayData, Never>
     let forecastDisplayData: Signal<ForecastDisplayData, Never>
-    var dataLoading: Signal<Bool, Never>
+    var dataLoading: Signal<(Bool, Bool), Never>
     var isRefreshing: Signal<Bool, Never>
     let dataLoadError: Signal<Error, Never>
   }
@@ -47,7 +47,7 @@ struct ReactiveSwiftViewModel {
     let currentWeatherData = Signal.merge(currentOnLoad, currentRefresh)
     let forecastWeatherData = Signal.merge(forecastOnLoad, forecastRefresh)
     
-    let dataLoading = Signal.merge(isLoadingCurrent, isLoadingForecast)
+    let dataLoading = Signal.combineLatest(isLoadingCurrent, isLoadingForecast)
     let dataRefreshing = Signal.merge(isRefreshingCurrent, isRefreshingForecast)
     
     return .init(

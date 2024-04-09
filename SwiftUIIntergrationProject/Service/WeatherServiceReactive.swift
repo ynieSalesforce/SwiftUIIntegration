@@ -23,7 +23,7 @@ extension WeatherServiceReactive {
     guard let unwrappedURL = url(path: "forecast", loadCriteria: loadCriteria) else { return SignalProducer.empty }
     
     return URLSession.shared.reactive
-      .data(with: URLRequest(url: unwrappedURL))
+      .data(with: URLRequest(url: unwrappedURL, cachePolicy: .reloadRevalidatingCacheData))
       .retry(upTo: 2)
       .flatMapError { error in
         return SignalProducer.init(error: error)
@@ -43,7 +43,7 @@ extension WeatherServiceReactive {
     guard let unwrappedURL = url(path: "weather", loadCriteria: loadCriteria) else { return SignalProducer.empty }
     
     return URLSession.shared.reactive
-      .data(with: URLRequest(url: unwrappedURL))
+      .data(with: URLRequest(url: unwrappedURL, cachePolicy: .reloadRevalidatingCacheData))
       .retry(upTo: 2)
       .flatMapError { error in
         return SignalProducer.init(error: error)

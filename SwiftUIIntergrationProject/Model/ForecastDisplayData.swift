@@ -39,14 +39,25 @@ struct List: Codable {
   let visibility: Int
   let pop: Double
   let rain: Rain?
+  let dtTxt: String
   
   enum CodingKeys: String, CodingKey {
     case temperatures = "main"
     case dt, weather, clouds, wind, visibility, pop
     case rain
+    case dtTxt = "dt_txt"
   }
 }
 
+extension List {
+  var displayDate: String {
+    let timeInterval = Date(timeIntervalSince1970: TimeInterval(dt))
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .short
+    dateFormatter.timeStyle = .short
+    return dateFormatter.string(from: timeInterval)
+  }
+}
   // MARK: - Clouds
 struct Clouds: Codable {
   let all: Int
