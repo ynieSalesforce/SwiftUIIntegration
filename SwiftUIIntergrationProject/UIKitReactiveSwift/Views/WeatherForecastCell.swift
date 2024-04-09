@@ -36,7 +36,7 @@ class WeatherForecastCell: UITableViewCell, Reusable {
   
   func configure(with list: List) {
     timeLabel.text = list.displayDate
-    temperatureLabel.text = "Temperature: \(list.temperatures.temp)"
+    temperatureLabel.text = "Temperature: \(list.temperatures.temp)f"
     weatherLabel.text = list.weather.first?.description
     
     setNeedsUpdateConstraints()

@@ -25,6 +25,11 @@
 		9B1FE3812BC4FDC600F0A259 /* LoadingViewUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3802BC4FDC600F0A259 /* LoadingViewUIKit.swift */; };
 		9B1FE3832BC5001600F0A259 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3822BC5001600F0A259 /* UITableView.swift */; };
 		9B1FE3862BC507C400F0A259 /* SwiftUIMixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3852BC507C400F0A259 /* SwiftUIMixView.swift */; };
+		9B1FE3882BC5C7B800F0A259 /* WeatherSelectorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3872BC5C7B800F0A259 /* WeatherSelectorHeaderView.swift */; };
+		9B1FE38A2BC5CD3600F0A259 /* SwiftUIMixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3892BC5CD3600F0A259 /* SwiftUIMixViewModel.swift */; };
+		9B1FE38C2BC5CD7700F0A259 /* ViewDataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE38B2BC5CD7700F0A259 /* ViewDataState.swift */; };
+		9B1FE38E2BC5D63200F0A259 /* SwiftUIMixController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE38D2BC5D63200F0A259 /* SwiftUIMixController.swift */; };
+		9B1FE3912BC5D68500F0A259 /* OnLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3902BC5D68500F0A259 /* OnLoad.swift */; };
 		9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */; };
 		9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */; };
 		9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF92BBC560F00A5F295 /* ViewController.swift */; };
@@ -85,6 +90,11 @@
 		9B1FE3802BC4FDC600F0A259 /* LoadingViewUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewUIKit.swift; sourceTree = "<group>"; };
 		9B1FE3822BC5001600F0A259 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		9B1FE3852BC507C400F0A259 /* SwiftUIMixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIMixView.swift; sourceTree = "<group>"; };
+		9B1FE3872BC5C7B800F0A259 /* WeatherSelectorHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSelectorHeaderView.swift; sourceTree = "<group>"; };
+		9B1FE3892BC5CD3600F0A259 /* SwiftUIMixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIMixViewModel.swift; sourceTree = "<group>"; };
+		9B1FE38B2BC5CD7700F0A259 /* ViewDataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDataState.swift; sourceTree = "<group>"; };
+		9B1FE38D2BC5D63200F0A259 /* SwiftUIMixController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIMixController.swift; sourceTree = "<group>"; };
+		9B1FE3902BC5D68500F0A259 /* OnLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnLoad.swift; sourceTree = "<group>"; };
 		9BBD8CF22BBC560F00A5F295 /* SwiftUIIntergrationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIIntergrationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +178,7 @@
 				9B1FE37A2BC4D50500F0A259 /* WeatherSectionHeader.swift */,
 				9B1FE37C2BC4D52F00F0A259 /* WeatherForecastCell.swift */,
 				9B1FE3802BC4FDC600F0A259 /* LoadingViewUIKit.swift */,
+				9B1FE3872BC5C7B800F0A259 /* WeatherSelectorHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,8 +187,19 @@
 			isa = PBXGroup;
 			children = (
 				9B1FE3852BC507C400F0A259 /* SwiftUIMixView.swift */,
+				9B1FE3892BC5CD3600F0A259 /* SwiftUIMixViewModel.swift */,
+				9B1FE38B2BC5CD7700F0A259 /* ViewDataState.swift */,
+				9B1FE38D2BC5D63200F0A259 /* SwiftUIMixController.swift */,
 			);
 			path = SwiftUIMix;
+			sourceTree = "<group>";
+		};
+		9B1FE38F2BC5D67900F0A259 /* SwiftUIModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				9B1FE3902BC5D68500F0A259 /* OnLoad.swift */,
+			);
+			path = SwiftUIModifiers;
 			sourceTree = "<group>";
 		};
 		9BBD8CE92BBC560F00A5F295 = {
@@ -203,6 +225,7 @@
 		9BBD8CF42BBC560F00A5F295 /* SwiftUIIntergrationProject */ = {
 			isa = PBXGroup;
 			children = (
+				9B1FE38F2BC5D67900F0A259 /* SwiftUIModifiers */,
 				9B1FE3842BC507B000F0A259 /* SwiftUIMix */,
 				9B1FE36C2BC498FA00F0A259 /* UIKitExtensions */,
 				9B1FE3632BC0A08600F0A259 /* Model */,
@@ -449,6 +472,7 @@
 				9BD0A9022BC08ADA00953018 /* UIKitReactiveController.swift in Sources */,
 				9B1FE3742BC49BAE00F0A259 /* CurrentWeatherDisplayData.swift in Sources */,
 				9B1FE36B2BC497EA00F0A259 /* Environment.swift in Sources */,
+				9B1FE3882BC5C7B800F0A259 /* WeatherSelectorHeaderView.swift in Sources */,
 				9BD0A8FF2BBFA8DE00953018 /* NavigationHandler.swift in Sources */,
 				9B1FE37F2BC4D59600F0A259 /* Reusable.swift in Sources */,
 				9B1FE3832BC5001600F0A259 /* UITableView.swift in Sources */,
@@ -459,13 +483,17 @@
 				9B1FE36E2BC4990400F0A259 /* BaseViewController.swift in Sources */,
 				9B1FE3862BC507C400F0A259 /* SwiftUIMixView.swift in Sources */,
 				9BD0A8ED2BBE1C7100953018 /* MainMenuView.swift in Sources */,
+				9B1FE3912BC5D68500F0A259 /* OnLoad.swift in Sources */,
 				9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */,
+				9B1FE38C2BC5CD7700F0A259 /* ViewDataState.swift in Sources */,
 				9B1FE37D2BC4D52F00F0A259 /* WeatherForecastCell.swift in Sources */,
 				9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */,
+				9B1FE38E2BC5D63200F0A259 /* SwiftUIMixController.swift in Sources */,
 				9B1FE3702BC4996C00F0A259 /* Functions.swift in Sources */,
 				9B1FE3762BC49BD000F0A259 /* WeatherDisplayData.swift in Sources */,
 				9B1FE3812BC4FDC600F0A259 /* LoadingViewUIKit.swift in Sources */,
 				9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */,
+				9B1FE38A2BC5CD3600F0A259 /* SwiftUIMixViewModel.swift in Sources */,
 				9B1FE3692BC0EE0500F0A259 /* ForecastDisplayData.swift in Sources */,
 				9BD0A9042BC08C2C00953018 /* ReactiveSwiftViewModel.swift in Sources */,
 				9BD0A8F02BBF996F00953018 /* CGFloat+Extensions.swift in Sources */,

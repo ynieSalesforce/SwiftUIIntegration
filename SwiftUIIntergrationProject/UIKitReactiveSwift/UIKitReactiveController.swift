@@ -14,6 +14,7 @@ import SnapKit
 class UIKitReactiveController: BaseViewController {
   fileprivate var forecastData: [List] = []
   fileprivate var headerData: CurrentWeatherDisplayData?
+  private let locationProperty: MutableProperty<String> = .init(Addresses[0])
   
   lazy var tableView: UITableView = {
     let tableView = UITableView(frame: .zero, style: .grouped)
@@ -32,10 +33,15 @@ class UIKitReactiveController: BaseViewController {
     return tableView
   }()
   
+  private lazy var weatherSelectionHeaderView: WeatherSelectorHeaderView = .init()
+  
   override func configureUI() {
     tableView.snp.updateConstraints { make in
       make.edges.equalTo(self.view)
     }
+    tableView.tableHeaderView = weatherSelectionHeaderView
+    weatherSelectionHeaderView.configure(with: locationProperty)
+    sizeHeaderToFit(tableView: tableView)
   }
   
   override func bindViewModel() {
@@ -45,7 +51,7 @@ class UIKitReactiveController: BaseViewController {
           baseInput: .init(
             lifeCycle: lifecycle,
             refresh: refreshControl.refresh
-          ), location: Addresses[0])
+          ), locationProperty: locationProperty)
       )
     
     reactive.currentWeatherData <~ output.currentWeather
@@ -62,6 +68,18 @@ class UIKitReactiveController: BaseViewController {
   fileprivate func handleForecastWeatherData(with forecastData: ForecastDisplayData) {
     self.forecastData = forecastData.list
     tableView.reloadData()
+  }
+  
+  func sizeHeaderToFit(tableView: UITableView) {
+    if let headerView = tableView.tableHeaderView {
+      let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+      var frame = headerView.frame
+      frame.size.height = height
+      headerView.frame = frame
+      tableView.tableHeaderView = headerView
+      headerView.setNeedsLayout()
+      headerView.layoutIfNeeded()
+    }
   }
 }
 

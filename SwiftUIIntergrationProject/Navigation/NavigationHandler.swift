@@ -26,7 +26,8 @@ extension UIViewController {
   }
   
   private func navigateMixedView() {
-    
+    let controller = SwiftUIMixController()
+    navigationController?.pushViewController(controller, animated: true)
   }
   
   private func navigateComposableView() {

@@ -37,7 +37,7 @@ class WeatherSectionHeader: UITableViewHeaderFooterView, Reusable {
   func configure(with currentWeather: CurrentWeatherDisplayData) {
     cityLabel.text = currentWeather.name
     descriptionLabel.text = currentWeather.weather.first?.description
-    temperatureLabel.text = "Current temperature: \(currentWeather.main.temp)"
+    temperatureLabel.text = "Current temperature: \(currentWeather.main.temp)f"
     
     setNeedsUpdateConstraints()
     updateConstraintsIfNeeded()

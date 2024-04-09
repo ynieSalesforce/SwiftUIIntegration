@@ -13,7 +13,7 @@ import MapKit
 struct ReactiveSwiftViewModel {
   struct Input {
     let baseInput: BaseDataViewModelInput
-    let location: String
+    let locationProperty: MutableProperty<String>
   }
   
   struct Output {
@@ -30,16 +30,23 @@ struct ReactiveSwiftViewModel {
     let onRefresh = input.baseInput.refresh.observe(on: scheduler)
     
     let load = onLoad.flatMap(.latest) { _ in
-      coordinates(from: input.location).skipNil().map(LoadCriteria.init)
+      coordinates(from: input.locationProperty.value).skipNil().map(LoadCriteria.init)
+    }.ignoreErrors()
+    
+    let loadDifferentLocation = input.locationProperty.signal.flatMap(.latest) { location in
+      coordinates(from: location).skipNil().map(LoadCriteria.init)
     }.ignoreErrors()
     
     let refresh = onRefresh.flatMap(.latest) { _ in
-      coordinates(from: input.location).skipNil().map(LoadCriteria.init)
+      coordinates(from: input.locationProperty.value).skipNil().map(LoadCriteria.init)
     }.ignoreErrors()
     
-    // let currentOnLoad = load.flatMap(.latest, currentWeather)
-    let (isLoadingCurrent, currentOnLoad) = switchMapWithIndicator(load.map(currentWeather))
-    let (isLoadingForecast, forecastOnLoad) = switchMapWithIndicator(load.map(weatherForecast))
+    let (isLoadingCurrent, currentOnLoad) = switchMapWithIndicator(
+      load.merge(with: loadDifferentLocation).map(currentWeather)
+    )
+    let (isLoadingForecast, forecastOnLoad) = switchMapWithIndicator(
+      load.merge(with: loadDifferentLocation).map(weatherForecast)
+    )
     
     let (isRefreshingCurrent, currentRefresh) = switchMapWithIndicator(refresh.map(currentWeather))
     let (isRefreshingForecast, forecastRefresh) = switchMapWithIndicator(refresh.map(weatherForecast))
