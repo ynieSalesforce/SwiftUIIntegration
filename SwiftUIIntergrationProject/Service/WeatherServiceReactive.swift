@@ -7,7 +7,6 @@
 
 import Foundation
 import ReactiveSwift
-import Alamofire
 
 struct WeatherServiceReactive {
   var retrieveWeatherForecast: (LoadCriteria) -> DataProducer<ForecastDisplayData> = WeatherServiceReactive.retrieveWeatherForecast
@@ -20,7 +19,7 @@ extension WeatherServiceReactive {
 
 extension WeatherServiceReactive {
   static func retrieveWeatherForecast(from loadCriteria: LoadCriteria) -> DataProducer<ForecastDisplayData> {
-    guard let unwrappedURL = url(path: "forecast", loadCriteria: loadCriteria) else { return SignalProducer.empty }
+    guard let unwrappedURL = weatherServiceUrl(path: "forecast", loadCriteria: loadCriteria) else { return SignalProducer.empty }
     
     return URLSession.shared.reactive
       .data(with: URLRequest(url: unwrappedURL, cachePolicy: .reloadRevalidatingCacheData))
@@ -40,7 +39,7 @@ extension WeatherServiceReactive {
   }
   
   static func retrieveCurrentWeather(from loadCriteria: LoadCriteria) -> DataProducer<CurrentWeatherDisplayData> {
-    guard let unwrappedURL = url(path: "weather", loadCriteria: loadCriteria) else { return SignalProducer.empty }
+    guard let unwrappedURL = weatherServiceUrl(path: "weather", loadCriteria: loadCriteria) else { return SignalProducer.empty }
     
     return URLSession.shared.reactive
       .data(with: URLRequest(url: unwrappedURL, cachePolicy: .reloadRevalidatingCacheData))
@@ -59,19 +58,4 @@ extension WeatherServiceReactive {
       .observe(on: UIScheduler())
   }
   
-}
-
-//Enter your Open weather API Key from: https://home.openweathermap.org/api_keys
-private func url(path: String, loadCriteria: LoadCriteria) -> URL? {
-  var components = URLComponents()
-  components.scheme = "https"
-  components.host = "api.openweathermap.org"
-  components.path = "/data/2.5/\(path)"
-  components.queryItems = [
-    URLQueryItem(name: "lat", value: "\(loadCriteria.location.coordinate.latitude)"),
-    URLQueryItem(name: "lon", value: "\(loadCriteria.location.coordinate.longitude)"),
-    URLQueryItem(name: "appid", value: openWeatherAPIKey),
-    URLQueryItem(name: "units", value: "imperial")
-  ]
-  return try? components.asURL()
 }

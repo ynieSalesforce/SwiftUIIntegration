@@ -31,6 +31,7 @@ extension UIViewController {
   }
   
   private func navigateComposableView() {
-    
+    let controller = WeatherComposableController()
+    navigationController?.pushViewController(controller, animated: true)
   }
 }

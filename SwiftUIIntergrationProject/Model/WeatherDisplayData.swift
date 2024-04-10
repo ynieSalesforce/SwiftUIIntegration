@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeatherDisplayData {
+struct WeatherDisplayData: Equatable {
   let currentWeather: CurrentWeatherDisplayData
   let forecast: ForecastDisplayData
   

@@ -19,8 +19,8 @@ struct SwiftUIMixView: View {
           ProgressView().padding()
         }, content: { model in
           currentWeatherView(currentWeather: model)
-        }, errorContent: { error in
-          ErrorView(error: error)
+        }, errorContent: {
+          ErrorView()
         })
       
       LoadingSectionView(
@@ -29,8 +29,8 @@ struct SwiftUIMixView: View {
           ProgressView().padding()
         }, content: { model in
           forecastWeatherView(forecastWeather: model)
-        }, errorContent: { error in
-          ErrorView(error: error)
+        }, errorContent: {
+          ErrorView()
         })
       
       Spacer()

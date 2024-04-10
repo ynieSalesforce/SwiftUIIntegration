@@ -8,19 +8,14 @@
 import Foundation
 import SwiftUI
 
-protocol LoadingSectionData<Model>: ObservableObject {
-  associatedtype Model
-  var state: ViewDataState<Model> { get set }
-}
-
 struct LoadingSectionView<
   LoadingView: View,
   ContentView: View,
-  Model,
+  Model: Equatable,
   ErrorContent: View
 >: View {
   let content: (Model) -> ContentView
-  let errorContent: (Error) -> ErrorContent
+  let errorContent: () -> ErrorContent
   let loadingContent: () -> LoadingView
   
   @Binding var state: ViewDataState<Model>
@@ -29,7 +24,7 @@ struct LoadingSectionView<
     model: Binding<ViewDataState<Model>>,
     @ViewBuilder loadingContent: @escaping () -> LoadingView,
     @ViewBuilder content: @escaping (Model) -> ContentView,
-    @ViewBuilder errorContent: @escaping (Error) -> ErrorContent
+    @ViewBuilder errorContent: @escaping () -> ErrorContent
   ) {
     _state = model
     self.content = content
@@ -43,8 +38,8 @@ struct LoadingSectionView<
       loadingContent()
     case let .dataLoaded(model):
       content(model)
-    case let .error(error):
-      errorContent(error)
+    case .error:
+      errorContent()
     case .empty:
       EmptyView()
     }
@@ -52,9 +47,10 @@ struct LoadingSectionView<
 }
 
 struct ErrorView: View {
-  let error: Error
-  
   var body: some View {
-    Text(error.localizedDescription)
+    Text("Error View")
+      .font(.title)
+      .padding()
+      .foregroundColor(.primary)
   }
 }

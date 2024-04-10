@@ -8,12 +8,12 @@
 import Foundation
 import MapKit
 import ReactiveSwift
-
-
+import Combine
 
 struct AddressService {
   var coordinates: (String) -> ValueSignalProducer<CLLocation?> = coordinates
   var asyncCoordinate: (String) async -> CLLocationCoordinate2D? = asyncCoordinate
+  var coordinatePublisher: (String) -> DataPublisher<CLLocation?> = coordinatePub
 }
 
 extension AddressService {
@@ -46,17 +46,24 @@ extension AddressService {
     return location.coordinate
   }
   
-  static func coordinates(from address: String) -> ValueSignalProducer<CLLocation?>{
-    return ValueSignalProducer<CLLocation?> { observer, _ in
+  static func coordinatePub(from address: String) -> DataPublisher<CLLocation?> {
+    return Future<CLLocation?, Never> { promise in
       let geoCoder = CLGeocoder()
       geoCoder.geocodeAddressString(address) { (placemarks, error) in
         guard let placemarks = placemarks,
               let location = placemarks.first?.location else {
-          observer.send(value: nil)
+          promise(.success(nil))
           return
         }
-        observer.send(value: location)
+        promise(.success(location))
       }
+    }.eraseToAnyPublisher()
+  }
+  
+  static func coordinates(from address: String) -> ValueSignalProducer<CLLocation?>{
+    return ValueSignalProducer<CLLocation?> { observer, _ in
+      let geoCoder = CLGeocoder()
+
     }
   }
 }

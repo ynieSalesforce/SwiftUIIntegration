@@ -8,14 +8,14 @@
 import Foundation
 import Combine
 
-enum ViewDataState<T> {
+enum ViewDataState<T>: Equatable where T: Equatable {
   case dataLoaded(T)
   case empty
   case loading
-  case error(Error)
+  case error
 }
 
-protocol LoadingViewData<Model>: ObservableObject {
+protocol LoadingViewData<Model>: ObservableObject where Model: Equatable {
   associatedtype Model
   var state: ViewDataState<Model> { get set }
   func retrieveData()

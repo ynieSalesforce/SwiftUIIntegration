@@ -8,7 +8,7 @@
 import Foundation
 
 // Generated from: https://app.quicktype.io/
-struct ForecastDisplayData: Codable {
+struct ForecastDisplayData: Codable, Equatable {
   let cod: String
   let message, cnt: Int
   let list: [List]
@@ -16,13 +16,13 @@ struct ForecastDisplayData: Codable {
 }
 
   // MARK: - City
-struct City: Codable {
+struct City: Codable, Equatable  {
   let id: Int
   let name: String
 }
 
   // MARK: - List
-struct List: Codable {
+struct List: Codable, Equatable  {
   let dt: Int
   let temperatures: Temperature
   let weather: [Weather]
@@ -47,7 +47,7 @@ extension List {
 }
 
   // MARK: - MainClass
-struct Temperature: Codable {
+struct Temperature: Codable, Equatable  {
   let temp, feelsLike: Double
   let humidity: Int
   
@@ -59,7 +59,7 @@ struct Temperature: Codable {
 }
 
   // MARK: - Rain
-struct Rain: Codable {
+struct Rain: Codable, Equatable  {
   let the3H: Double
   
   enum CodingKeys: String, CodingKey {
