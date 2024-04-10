@@ -53,18 +53,21 @@ class WeatherSelectorHeaderView: UIView {
   override func updateConstraints() {
     addressButton1.snp.updateConstraints { make in
       make.leading.equalToSuperview().offset(10)
+      make.width.equalToSuperview().multipliedBy(0.3)
       make.top.equalToSuperview().offset(10)
       make.bottom.equalToSuperview().inset(10)
     }
     
     addressButton2.snp.updateConstraints { make in
       make.leading.equalTo(addressButton1.snp.trailing).offset(10)
+      make.width.equalToSuperview().multipliedBy(0.3)
       make.top.equalToSuperview().offset(10)
       make.bottom.equalToSuperview().inset(10)
     }
     
     addressButton3.snp.updateConstraints { make in
       make.leading.equalTo(addressButton2.snp.trailing).offset(10)
+      make.width.equalToSuperview().multipliedBy(0.3)
       make.trailing.equalToSuperview().inset(10)
       make.top.equalToSuperview().offset(10)
       make.bottom.equalToSuperview().inset(10)

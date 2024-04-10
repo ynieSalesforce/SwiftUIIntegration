@@ -67,6 +67,7 @@
 		9BD0A9022BC08ADA00953018 /* UIKitReactiveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A9012BC08ADA00953018 /* UIKitReactiveController.swift */; };
 		9BD0A9042BC08C2C00953018 /* ReactiveSwiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A9032BC08C2C00953018 /* ReactiveSwiftViewModel.swift */; };
 		9BD0A9072BC08CFB00953018 /* WeatherServiceReactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A9062BC08CFB00953018 /* WeatherServiceReactive.swift */; };
+		9BD981222BC739C10075ED8B /* GrowingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD981212BC739C10075ED8B /* GrowingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		9BD0A9012BC08ADA00953018 /* UIKitReactiveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitReactiveController.swift; sourceTree = "<group>"; };
 		9BD0A9032BC08C2C00953018 /* ReactiveSwiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveSwiftViewModel.swift; sourceTree = "<group>"; };
 		9BD0A9062BC08CFB00953018 /* WeatherServiceReactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceReactive.swift; sourceTree = "<group>"; };
+		9BD981212BC739C10075ED8B /* GrowingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			children = (
 				9B1FE3902BC5D68500F0A259 /* OnLoad.swift */,
 				9B1FE39B2BC6369700F0A259 /* ReadSize.swift */,
+				9BD981212BC739C10075ED8B /* GrowingButton.swift */,
 			);
 			path = SwiftUIModifiers;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				9B1FE39A2BC6352D00F0A259 /* ForecastWeatherView.swift in Sources */,
 				9B1FE3982BC5DFC000F0A259 /* CurrentWeatherView.swift in Sources */,
 				9B1FE3702BC4996C00F0A259 /* Functions.swift in Sources */,
+				9BD981222BC739C10075ED8B /* GrowingButton.swift in Sources */,
 				9B1FE3932BC5DAB700F0A259 /* CurrentWeatherDisplayDataMock.swift in Sources */,
 				9B1FE3762BC49BD000F0A259 /* WeatherDisplayData.swift in Sources */,
 				9B1FE3812BC4FDC600F0A259 /* LoadingViewUIKit.swift in Sources */,

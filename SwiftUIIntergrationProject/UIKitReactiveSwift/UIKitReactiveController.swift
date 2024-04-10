@@ -121,6 +121,8 @@ private extension Reactive where Base: UIKitReactiveController {
     makeBindingTarget { vc, data in
       if !data.0, !data.1 {
         vc.loadingView.removeFromSuperview()
+      } else {
+        vc.addLoadingView()
       }
     }
   }

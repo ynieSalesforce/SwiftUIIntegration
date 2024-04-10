@@ -56,23 +56,18 @@ struct SwiftUIMixView: View {
   @ViewBuilder
   private func weatherSelectionView() -> some View {
     HStack {
-      Button(action: {
+      Button("Address 1") {
         loadData(input: Addresses[0])
-      }, label: {
-        Text("Address 1")
-      }).padding()
+      }.buttonStyle(GrowingButton())
       
-      Button(action: {
+      Button("Address 2") {
         loadData(input: Addresses[1])
-      }, label: {
-        Text("Address 2")
-      }).padding()
+      }.buttonStyle(GrowingButton())
+      .padding(.horizontal, .tdsSmall)
       
-      Button(action: {
+      Button("Address 3") {
         loadData(input: Addresses[2])
-      }, label: {
-        Text("Address 3")
-      }).padding()
+      }.buttonStyle(GrowingButton())
     }
   }
   

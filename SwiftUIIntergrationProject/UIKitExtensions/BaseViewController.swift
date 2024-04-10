@@ -32,10 +32,7 @@ class BaseViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.isNavigationBarHidden = false
-    view.addSubview(loadingView)
-    loadingView.snp.updateConstraints { make in
-      make.edges.equalToSuperview()
-    }
+    addLoadingView()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -60,6 +57,13 @@ class BaseViewController: UIViewController {
   // child class to override to bind to view model
   func bindViewModel() {
       // do nothing
+  }
+  
+  func addLoadingView() {
+    view.addSubview(loadingView)
+    loadingView.snp.updateConstraints { make in
+      make.edges.equalToSuperview()
+    }
   }
 }
 

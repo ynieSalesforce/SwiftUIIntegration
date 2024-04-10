@@ -45,26 +45,21 @@ struct ComposableView: View {
   @ViewBuilder
   private func weatherSelectionView() -> some View {
     HStack {
-      Button(action: {
+      Button("Address 1") {
         selectedWeather = Addresses[0]
-        store.send(.loadWeather(selectedWeather))
-      }, label: {
-        Text("Address 1")
-      }).padding()
+        store.send(.loadWeather(Addresses[0]))
+      }.buttonStyle(GrowingButton())
       
-      Button(action: {
+      Button("Address 2") {
         selectedWeather = Addresses[1]
-        store.send(.loadWeather(selectedWeather))
-      }, label: {
-        Text("Address 2")
-      }).padding()
+        store.send(.loadWeather(Addresses[1]))
+      }.buttonStyle(GrowingButton())
+        .padding(.horizontal, .tdsSmall)
       
-      Button(action: {
+      Button("Address 3") {
         selectedWeather = Addresses[2]
-        store.send(.loadWeather(selectedWeather))
-      }, label: {
-        Text("Address 3")
-      }).padding()
+        store.send(.loadWeather(Addresses[2]))
+      }.buttonStyle(GrowingButton())
     }
   }
 }
