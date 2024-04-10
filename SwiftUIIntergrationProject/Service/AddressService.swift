@@ -28,7 +28,7 @@ extension AddressService {
       }
       
       return await group.reduce(into: []) { dictionary, result in
-        guard let address = result.1 else { return }
+        // guard let address = result.1 else { return }
       }
     }
   }

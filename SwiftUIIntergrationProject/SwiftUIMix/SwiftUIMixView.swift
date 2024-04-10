@@ -23,83 +23,61 @@ struct SwiftUIMixView: View {
           ErrorView(error: error)
         })
       
-      switch viewModel.forecastData {
-      case .loading:
-        ProgressView().padding()
-      case .dataLoaded(let data):
-        forecastWeatherView(forecastWeather: data)
-      case .error(let error):
-        ErrorView(error: error)
-      default: EmptyView()
-      }
+      LoadingSectionView(
+        model: $viewModel.forecastData,
+        loadingContent: {
+          ProgressView().padding()
+        }, content: { model in
+          forecastWeatherView(forecastWeather: model)
+        }, errorContent: { error in
+          ErrorView(error: error)
+        })
+      
+      Spacer()
     }.onLoad {
-      viewModel.fetchCurrentWeather(input: Addresses[0])
-      viewModel.fetchForecast(input: Addresses[1])
+      loadData(input: Addresses[0])
     }
   }
   
   @ViewBuilder
   private func currentWeatherView(currentWeather: CurrentWeatherDisplayData) -> some View {
     VStack(spacing: 0) {
-      Text(currentWeather.name)
+      weatherSelectionView()
+        .padding(.bottom, .tdsMedium)
+      CurrentWeatherView(currentWeather: currentWeather)
     }
   }
   
   @ViewBuilder
   private func forecastWeatherView(forecastWeather: ForecastDisplayData) -> some View {
-    VStack(spacing: 0) {
-      Text("currentWeather.list.count")
+    ForecastWeatherView(forecast: forecastWeather)
+  }
+  
+  @ViewBuilder
+  private func weatherSelectionView() -> some View {
+    HStack {
+      Button(action: {
+        loadData(input: Addresses[0])
+      }, label: {
+        Text("Address 1")
+      }).padding()
+      
+      Button(action: {
+        loadData(input: Addresses[1])
+      }, label: {
+        Text("Address 2")
+      }).padding()
+      
+      Button(action: {
+        loadData(input: Addresses[2])
+      }, label: {
+        Text("Address 3")
+      }).padding()
     }
   }
-}
-
-struct ErrorView: View {
-  let error: Error
   
-  var body: some View {
-    Text(error.localizedDescription)
-  }
-}
-
-protocol LoadingSectionData<Model>: ObservableObject {
-  associatedtype Model
-  var state: ViewDataState<Model> { get set }
-}
-
-struct LoadingSectionView<
-  LoadingView: View,
-  ContentView: View,
-  Model,
-  ErrorContent: View
->: View {
-  let content: (Model) -> ContentView
-  let errorContent: (Error) -> ErrorContent
-  let loadingContent: () -> LoadingView
-  
-  @Binding var state: ViewDataState<Model>
-
-  init(
-    model: Binding<ViewDataState<Model>>,
-    @ViewBuilder loadingContent: @escaping () -> LoadingView,
-    @ViewBuilder content: @escaping (Model) -> ContentView,
-    @ViewBuilder errorContent: @escaping (Error) -> ErrorContent
-  ) {
-    _state = model
-    self.content = content
-    self.errorContent = errorContent
-    self.loadingContent = loadingContent
-  }
-  
-  var body: some View {
-    switch state {
-    case .loading:
-      loadingContent()
-    case let .dataLoaded(model):
-      content(model)
-    case let .error(error):
-      errorContent(error)
-    case .empty:
-      EmptyView()
-    }
+  private func loadData(input: String) {
+    viewModel.fetchCurrentWeather(input: input)
+    viewModel.fetchForecast(input: input)
   }
 }

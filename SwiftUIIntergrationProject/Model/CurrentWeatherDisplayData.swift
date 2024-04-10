@@ -8,7 +8,7 @@
 import Foundation
 
   // MARK: - WeatherDisplayData
-struct CurrentWeatherDisplayData: Codable {
+struct CurrentWeatherDisplayData: Codable, Equatable {
   let weather: [Weather]
   let main: Main
   let wind: Wind
@@ -18,7 +18,7 @@ struct CurrentWeatherDisplayData: Codable {
 }
 
   // MARK: - Main
-struct Main: Codable {
+struct Main: Codable, Equatable {
   let temp, feelsLike: Double
   let humidity: Int
   

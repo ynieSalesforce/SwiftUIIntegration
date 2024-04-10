@@ -68,7 +68,7 @@ struct Rain: Codable {
 }
 
   // MARK: - Weather
-struct Weather: Codable {
+struct Weather: Codable, Equatable {
   let id: Int
   let main: MainEnum
   let description, icon: String
@@ -81,7 +81,7 @@ enum MainEnum: String, Codable {
 }
 
   // MARK: - Wind
-struct Wind: Codable {
+struct Wind: Codable, Equatable {
   let speed: Double
   let deg: Int
 }
