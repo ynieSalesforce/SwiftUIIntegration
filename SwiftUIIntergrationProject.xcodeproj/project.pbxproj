@@ -36,6 +36,10 @@
 		9B1FE39A2BC6352D00F0A259 /* ForecastWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3992BC6352D00F0A259 /* ForecastWeatherView.swift */; };
 		9B1FE39C2BC6369700F0A259 /* ReadSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE39B2BC6369700F0A259 /* ReadSize.swift */; };
 		9B1FE39E2BC63A7F00F0A259 /* LoadingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE39D2BC63A7F00F0A259 /* LoadingSectionView.swift */; };
+		9B1FE3A12BC63D6600F0A259 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1FE3A02BC63D6600F0A259 /* Quick */; };
+		9B1FE3A42BC63D9100F0A259 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1FE3A32BC63D9100F0A259 /* Nimble */; };
+		9B1FE3A62BC63E1B00F0A259 /* WeatherServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3A52BC63E1B00F0A259 /* WeatherServiceMock.swift */; };
+		9B1FE3A92BC63F0300F0A259 /* EnvironmentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3A72BC63EB500F0A259 /* EnvironmentMock.swift */; };
 		9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */; };
 		9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */; };
 		9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF92BBC560F00A5F295 /* ViewController.swift */; };
@@ -107,6 +111,8 @@
 		9B1FE3992BC6352D00F0A259 /* ForecastWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherView.swift; sourceTree = "<group>"; };
 		9B1FE39B2BC6369700F0A259 /* ReadSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadSize.swift; sourceTree = "<group>"; };
 		9B1FE39D2BC63A7F00F0A259 /* LoadingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSectionView.swift; sourceTree = "<group>"; };
+		9B1FE3A52BC63E1B00F0A259 /* WeatherServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceMock.swift; sourceTree = "<group>"; };
+		9B1FE3A72BC63EB500F0A259 /* EnvironmentMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentMock.swift; sourceTree = "<group>"; };
 		9BBD8CF22BBC560F00A5F295 /* SwiftUIIntergrationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIIntergrationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +154,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B1FE3A42BC63D9100F0A259 /* Nimble in Frameworks */,
+				9B1FE3A12BC63D6600F0A259 /* Quick in Frameworks */,
 				9BBD8D2A2BBC5B0300A5F295 /* PreviewSnapshotsTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +276,7 @@
 				9BBD8D002BBC561000A5F295 /* LaunchScreen.storyboard */,
 				9BBD8D032BBC561000A5F295 /* Info.plist */,
 				9B1FE36A2BC497EA00F0A259 /* Environment.swift */,
+				9B1FE3A72BC63EB500F0A259 /* EnvironmentMock.swift */,
 			);
 			path = SwiftUIIntergrationProject;
 			sourceTree = "<group>";
@@ -339,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				9BD0A9062BC08CFB00953018 /* WeatherServiceReactive.swift */,
+				9B1FE3A52BC63E1B00F0A259 /* WeatherServiceMock.swift */,
 				9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */,
 			);
 			path = Service;
@@ -389,6 +399,8 @@
 			name = SwiftUIIntergrationProjectTests;
 			packageProductDependencies = (
 				9BBD8D292BBC5B0300A5F295 /* PreviewSnapshotsTesting */,
+				9B1FE3A02BC63D6600F0A259 /* Quick */,
+				9B1FE3A32BC63D9100F0A259 /* Nimble */,
 			);
 			productName = SwiftUIIntergrationProjectTests;
 			productReference = 9BBD8D082BBC561000A5F295 /* SwiftUIIntergrationProjectTests.xctest */;
@@ -452,6 +464,8 @@
 				9BD0A8F52BBF9F5400953018 /* XCRemoteSwiftPackageReference "ReactiveSwift" */,
 				9BD0A8F82BBFA01400953018 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
 				9BD0A9082BC0908F00953018 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9B1FE39F2BC63D6600F0A259 /* XCRemoteSwiftPackageReference "Quick" */,
+				9B1FE3A22BC63D9100F0A259 /* XCRemoteSwiftPackageReference "Nimble" */,
 			);
 			productRefGroup = 9BBD8CF32BBC560F00A5F295 /* Products */;
 			projectDirPath = "";
@@ -541,6 +555,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B1FE3A92BC63F0300F0A259 /* EnvironmentMock.swift in Sources */,
+				9B1FE3A62BC63E1B00F0A259 /* WeatherServiceMock.swift in Sources */,
 				9BBD8D0D2BBC561000A5F295 /* SwiftUIIntergrationProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -874,6 +890,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9B1FE39F2BC63D6600F0A259 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.5.0;
+			};
+		};
+		9B1FE3A22BC63D9100F0A259 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.3.0;
+			};
+		};
 		9BBD8D262BBC5B0300A5F295 /* XCRemoteSwiftPackageReference "swiftui-preview-snapshots" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/doordash-oss/swiftui-preview-snapshots";
@@ -937,6 +969,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9BD0A9082BC0908F00953018 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		9B1FE3A02BC63D6600F0A259 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B1FE39F2BC63D6600F0A259 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		9B1FE3A32BC63D9100F0A259 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B1FE3A22BC63D9100F0A259 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
 		};
 		9BBD8D272BBC5B0300A5F295 /* PreviewSnapshots */ = {
 			isa = XCSwiftPackageProductDependency;
