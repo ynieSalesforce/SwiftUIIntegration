@@ -41,7 +41,7 @@ struct WeatherStore {
             .receive(on: RunLoop.main)
             .map { output in
             guard let currentWeather = output.0, let forecast = output.1 else { return WeatherStore.Action.error }
-            let weather = WeatherDisplayData.init(currentWeather: output.0.unsafelyUnwrapped, forecast: output.1.unsafelyUnwrapped)
+            let weather = WeatherDisplayData.init(currentWeather: currentWeather, forecast: forecast)
             return .dataLoaded(weather)
           }.catch { error in
             print("Error: \(error)")

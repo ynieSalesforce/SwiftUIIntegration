@@ -27,7 +27,7 @@ class SwiftUIMixViewModel: ObservableObject {
         switch event {
         case .value(let data):
           self?.currentWeatherData = .dataLoaded(data)
-        case .failed(let error):
+        case .failed(_):
           self?.currentWeatherData = .error
         default: return
         }
@@ -47,7 +47,7 @@ class SwiftUIMixViewModel: ObservableObject {
         switch event {
         case .value(let data):
           self?.forecastData = .dataLoaded(data)
-        case .failed(let error):
+        case .failed(_):
           self?.currentWeatherData = .error
         default: return
         }

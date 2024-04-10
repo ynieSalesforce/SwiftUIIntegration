@@ -63,7 +63,14 @@ extension AddressService {
   static func coordinates(from address: String) -> ValueSignalProducer<CLLocation?>{
     return ValueSignalProducer<CLLocation?> { observer, _ in
       let geoCoder = CLGeocoder()
-
+      geoCoder.geocodeAddressString(address) { (placemarks, error) in
+        guard let placemarks = placemarks,
+              let location = placemarks.first?.location else {
+          observer.send(value: nil)
+          return
+        }
+        observer.send(value: location)
+      }
     }
   }
 }
