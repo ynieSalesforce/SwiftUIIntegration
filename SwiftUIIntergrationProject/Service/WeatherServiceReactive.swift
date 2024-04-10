@@ -61,6 +61,7 @@ extension WeatherServiceReactive {
   
 }
 
+//Enter your Open weather API Key from: https://home.openweathermap.org/api_keys
 private func url(path: String, loadCriteria: LoadCriteria) -> URL? {
   var components = URLComponents()
   components.scheme = "https"
