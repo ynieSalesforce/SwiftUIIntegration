@@ -43,10 +43,7 @@ struct WeatherStore {
             guard let currentWeather = output.0, let forecast = output.1 else { return WeatherStore.Action.error }
             let weather = WeatherDisplayData.init(currentWeather: currentWeather, forecast: forecast)
             return .dataLoaded(weather)
-          }.catch { error in
-            print("Error: \(error)")
-            return Just(Action.error)
-          }
+            }
           return combinedWeather
         }.cancellable(id: CancelID.loadWeather, cancelInFlight: true)
       case .dataLoaded(let data):

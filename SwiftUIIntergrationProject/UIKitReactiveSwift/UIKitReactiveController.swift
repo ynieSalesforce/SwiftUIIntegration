@@ -60,12 +60,12 @@ class UIKitReactiveController: BaseViewController {
     reactive.isLoading <~ output.dataLoading
   }
   
-  fileprivate func handleCurrentWeatherData(with currentWeather: CurrentWeatherDisplayData) {
+  func handleCurrentWeatherData(with currentWeather: CurrentWeatherDisplayData) {
     headerData = currentWeather
     tableView.reloadData()
   }
   
-  fileprivate func handleForecastWeatherData(with forecastData: ForecastDisplayData) {
+  func handleForecastWeatherData(with forecastData: ForecastDisplayData) {
     self.forecastData = forecastData.list
     tableView.reloadData()
   }
