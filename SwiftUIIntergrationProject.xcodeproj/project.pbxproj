@@ -47,6 +47,7 @@
 		9BAA25752BC77BE400AA42B3 /* ReactiveSwiftViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA25742BC77BE400AA42B3 /* ReactiveSwiftViewModelTests.swift */; };
 		9BAA25772BC77D6B00AA42B3 /* TestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA25762BC77D6B00AA42B3 /* TestObserver.swift */; };
 		9BAA25792BC7815F00AA42B3 /* AddressServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA25782BC7815F00AA42B3 /* AddressServiceMock.swift */; };
+		9BAA257B2BC7842900AA42B3 /* MixViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA257A2BC7842900AA42B3 /* MixViewModelTests.swift */; };
 		9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */; };
 		9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */; };
 		9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF92BBC560F00A5F295 /* ViewController.swift */; };
@@ -129,6 +130,7 @@
 		9BAA25742BC77BE400AA42B3 /* ReactiveSwiftViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveSwiftViewModelTests.swift; sourceTree = "<group>"; };
 		9BAA25762BC77D6B00AA42B3 /* TestObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestObserver.swift; sourceTree = "<group>"; };
 		9BAA25782BC7815F00AA42B3 /* AddressServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressServiceMock.swift; sourceTree = "<group>"; };
+		9BAA257A2BC7842900AA42B3 /* MixViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixViewModelTests.swift; sourceTree = "<group>"; };
 		9BBD8CF22BBC560F00A5F295 /* SwiftUIIntergrationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIIntergrationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				9B1FE3962BC5DF4400F0A259 /* Views */,
 				9B1FE3852BC507C400F0A259 /* SwiftUIMixView.swift */,
 				9B1FE3892BC5CD3600F0A259 /* SwiftUIMixViewModel.swift */,
+				9BAA257A2BC7842900AA42B3 /* MixViewModelTests.swift */,
 				9B1FE38B2BC5CD7700F0A259 /* ViewDataState.swift */,
 				9B1FE38D2BC5D63200F0A259 /* SwiftUIMixController.swift */,
 			);
@@ -594,6 +597,7 @@
 			files = (
 				9BAA25792BC7815F00AA42B3 /* AddressServiceMock.swift in Sources */,
 				9B1FE3A92BC63F0300F0A259 /* EnvironmentMock.swift in Sources */,
+				9BAA257B2BC7842900AA42B3 /* MixViewModelTests.swift in Sources */,
 				9BAA25752BC77BE400AA42B3 /* ReactiveSwiftViewModelTests.swift in Sources */,
 				9B1FE3A62BC63E1B00F0A259 /* WeatherServiceMock.swift in Sources */,
 				9BBD8D0D2BBC561000A5F295 /* SwiftUIIntergrationProjectTests.swift in Sources */,

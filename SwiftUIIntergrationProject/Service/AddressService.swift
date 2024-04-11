@@ -20,19 +20,7 @@ extension AddressService {
   static var live = AddressService()
 }
 
-extension AddressService {
-  static func coordinates(from addresses: [String]) async -> [CLLocationCoordinate2D] {
-    await withTaskGroup(of: (String, CLLocationCoordinate2D?).self) { group in
-      for address in addresses {
-        group.addTask { await (address, asyncCoordinate(from: address)) }
-      }
-      
-      return await group.reduce(into: []) { dictionary, result in
-        // guard let address = result.1 else { return }
-      }
-    }
-  }
-  
+extension AddressService {  
   static func asyncCoordinate(from address: String) async -> CLLocationCoordinate2D? {
     let geocoder = CLGeocoder()
     
