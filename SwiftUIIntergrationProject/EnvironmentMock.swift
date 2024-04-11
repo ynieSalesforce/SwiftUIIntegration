@@ -16,7 +16,7 @@ extension Environment {
       scheduler: TestScheduler(),
       backgroundScheduler: TestScheduler(),
       weatherServiceReactive: .mock,
-      addressService: .live
+      addressService: .mock
     )
   }
 }
