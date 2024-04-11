@@ -11,10 +11,25 @@ import SwiftUI
 import ReactiveSwift
 
 class SwiftUIMixViewModel: ObservableObject {
-  @Published var currentWeatherData: ViewDataState<CurrentWeatherDisplayData> = .loading
-  @Published var forecastData: ViewDataState<ForecastDisplayData> = .loading
+  @Published var weatherData: ViewDataState<WeatherDisplayData> = .loading
   
-  func fetchCurrentWeather(input: String) {
+  func fetchWeatherDisplayData(input: String) {
+    let current = fetchCurrentWeather(input: input)
+    let forecast = fetchForecast(input: input)
+    current.combineLatest(with: forecast).map(WeatherDisplayData.init)
+      .materialize()
+      .startWithValues { [weak self] event in
+        switch event {
+        case .value(let value):
+          self?.weatherData = .dataLoaded(value)
+        case .failed:
+          self?.weatherData = .error
+        default: break
+        }
+      }
+  }
+  
+  private func fetchCurrentWeather(input: String) -> DataProducer<CurrentWeatherDisplayData>  {
     Environment.current.addressService
       .coordinates(input)
       .skipNil()
@@ -22,19 +37,9 @@ class SwiftUIMixViewModel: ObservableObject {
       .flatMap(.latest, Environment.current.weatherServiceReactive.retrieveCurrentWeather)
       .start(on: Environment.current.scheduler)
       .observe(on: UIScheduler())
-      .materialize()
-      .startWithValues { [weak self] event in
-        switch event {
-        case .value(let data):
-          self?.currentWeatherData = .dataLoaded(data)
-        case .failed:
-          self?.currentWeatherData = .error
-        default: return
-        }
-      }
   }
   
-  func fetchForecast(input: String) {
+  private func fetchForecast(input: String) -> DataProducer<ForecastDisplayData> {
     Environment.current.addressService
       .coordinates(input)
       .skipNil()
@@ -42,16 +47,6 @@ class SwiftUIMixViewModel: ObservableObject {
       .flatMap(.latest, Environment.current.weatherServiceReactive.retrieveWeatherForecast)
       .start(on: Environment.current.scheduler)
       .observe(on: UIScheduler())
-      .materialize()
-      .startWithValues { [weak self] event in
-        switch event {
-        case .value(let data):
-          self?.forecastData = .dataLoaded(data)
-        case .failed:
-          self?.currentWeatherData = .error
-        default: return
-        }
-      }
   }
 }
 
