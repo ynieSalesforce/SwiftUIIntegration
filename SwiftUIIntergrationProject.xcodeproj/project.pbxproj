@@ -196,7 +196,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9B1FE3632BC0A08600F0A259 /* Model */ = {
+		9B1FE3632BC0A08600F0A259 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				9B1FE3642BC0A09200F0A259 /* Addresses.swift */,
@@ -207,7 +207,7 @@
 				9B1FE3732BC49BAE00F0A259 /* CurrentWeatherDisplayData.swift */,
 				9B1FE3922BC5DAB700F0A259 /* CurrentWeatherDisplayDataMock.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		9B1FE36C2BC498FA00F0A259 /* UIKitExtensions */ = {
@@ -266,7 +266,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		9B1FE3AA2BC6F46100F0A259 /* ComposableArchitecture */ = {
+		9B1FE3AA2BC6F46100F0A259 /* ComposableArchitectureView */ = {
 			isa = PBXGroup;
 			children = (
 				9B1FE3AF2BC6FE0F00F0A259 /* WeatherStore.swift */,
@@ -274,7 +274,18 @@
 				9B1FE3B12BC722EF00F0A259 /* ComposableView.swift */,
 				9B1FE3B32BC7271500F0A259 /* WeatherComposableController.swift */,
 			);
-			path = ComposableArchitecture;
+			path = ComposableArchitectureView;
+			sourceTree = "<group>";
+		};
+		9B327CC12BC8CE120031A858 /* ModifiersExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				9BD0A8EE2BBF995800953018 /* Constants */,
+				9BD0A8F12BBF9C1F00953018 /* ReactiveSwiftExtensions */,
+				9B1FE36C2BC498FA00F0A259 /* UIKitExtensions */,
+				9B1FE38F2BC5D67900F0A259 /* SwiftUIModifiers */,
+			);
+			path = ModifiersExtensions;
 			sourceTree = "<group>";
 		};
 		9BBD8CE92BBC560F00A5F295 = {
@@ -300,16 +311,13 @@
 		9BBD8CF42BBC560F00A5F295 /* SwiftUIIntergrationProject */ = {
 			isa = PBXGroup;
 			children = (
-				9B1FE3AA2BC6F46100F0A259 /* ComposableArchitecture */,
-				9B1FE38F2BC5D67900F0A259 /* SwiftUIModifiers */,
+				9B327CC12BC8CE120031A858 /* ModifiersExtensions */,
+				9B1FE3AA2BC6F46100F0A259 /* ComposableArchitectureView */,
 				9B1FE3842BC507B000F0A259 /* SwiftUIMix */,
-				9B1FE36C2BC498FA00F0A259 /* UIKitExtensions */,
-				9B1FE3632BC0A08600F0A259 /* Model */,
-				9BD0A9052BC08C3700953018 /* Service */,
+				9B1FE3632BC0A08600F0A259 /* Models */,
+				9BD0A9052BC08C3700953018 /* Services */,
 				9BD0A9002BC088CA00953018 /* UIKitReactiveSwift */,
 				9BD0A8FD2BBFA27100953018 /* Navigation */,
-				9BD0A8F12BBF9C1F00953018 /* ReactiveSwiftExtensions */,
-				9BD0A8EE2BBF995800953018 /* Constants */,
 				9BBD8D252BBC56A900A5F295 /* MainMenu */,
 				9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */,
 				9BD0A8EA2BBE1A4400953018 /* OpenWeatherAPIKey.swift */,
@@ -389,7 +397,7 @@
 			path = UIKitReactiveSwift;
 			sourceTree = "<group>";
 		};
-		9BD0A9052BC08C3700953018 /* Service */ = {
+		9BD0A9052BC08C3700953018 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				9BD0A9062BC08CFB00953018 /* WeatherServiceReactive.swift */,
@@ -399,7 +407,7 @@
 				9B1FE3AB2BC6F49600F0A259 /* WeatherServiceCombine.swift */,
 				9B1FE3AD2BC6F4B000F0A259 /* WeatherServiceURL.swift */,
 			);
-			path = Service;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
