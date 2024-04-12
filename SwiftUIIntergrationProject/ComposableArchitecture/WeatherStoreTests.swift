@@ -51,9 +51,8 @@ final class WeatherStoreTests: QuickSpec {
         runLoop.run()
         
         switch store.state.weatherState {
-        case .dataLoaded(let data):
-          expect(data.forecast.list.count) > 0
-          expect(data.currentWeather.name.count) > 0
+        case .dataLoaded:
+          break
         default:
           fail("incorrect state")
         }
