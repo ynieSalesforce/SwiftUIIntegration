@@ -11,11 +11,6 @@ import SwiftUI
 
 struct ComposableView: View {
   @State var store: StoreOf<WeatherStore>
-  @State var selectedWeather: String = Addresses[0]
-  
-  init(store: StoreOf<WeatherStore>) {
-    self.store = store
-  }
   
   var body: some View {
     switch store.weatherState {
@@ -28,12 +23,12 @@ struct ComposableView: View {
           ForecastWeatherView(forecast: weatherData.forecast)
         })
       }.refreshable {
-        store.send(.loadWeather(selectedWeather))
+        store.send(.loadWeather)
       }
     case .loading:
       ProgressView().padding()
         .onLoad {
-          store.send(.loadWeather(selectedWeather))
+          store.send(.loadWeather)
         }
     case .error:
       ErrorView()
@@ -46,19 +41,16 @@ struct ComposableView: View {
   private func weatherSelectionView() -> some View {
     HStack {
       Button("Address 1") {
-        selectedWeather = Addresses[0]
-        store.send(.loadWeather(Addresses[0]))
+        store.send(.selectWeather(Addresses[0]))
       }.buttonStyle(GrowingButton())
       
       Button("Address 2") {
-        selectedWeather = Addresses[1]
-        store.send(.loadWeather(Addresses[1]))
+        store.send(.selectWeather(Addresses[1]))
       }.buttonStyle(GrowingButton())
         .padding(.horizontal, .tdsSmall)
       
       Button("Address 3") {
-        selectedWeather = Addresses[2]
-        store.send(.loadWeather(Addresses[2]))
+        store.send(.selectWeather(Addresses[2]))
       }.buttonStyle(GrowingButton())
     }
   }

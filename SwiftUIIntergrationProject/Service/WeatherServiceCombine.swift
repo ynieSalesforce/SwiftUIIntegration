@@ -24,6 +24,9 @@ extension DependencyValues {
     }
   }
 }
+
+public struct SimpleError: Error {}
+
 extension WeatherServiceCombine: DependencyKey {
   static let liveValue = Self(
     retrieveWeatherForecast: { loadCriteria in
@@ -36,39 +39,47 @@ extension WeatherServiceCombine: DependencyKey {
   
   static let testValue: WeatherServiceCombine = Self(
     retrieveWeatherForecast: { _ in
-      Just(ForecastDisplayData.createMock()).eraseToAnyPublisher()
+      Just(ForecastDisplayData.createMock()).setFailureType(to: SimpleError.self).eraseToAnyPublisher()
     }, retrieveCurrentWeather: { _ in
-      Just(CurrentWeatherDisplayData.createMock()).eraseToAnyPublisher()
+      Just(CurrentWeatherDisplayData.createMock()).setFailureType(to: SimpleError.self).eraseToAnyPublisher()
     }
   )
   
   static let previewValue: WeatherServiceCombine = Self(
     retrieveWeatherForecast: { _ in
-      Just(ForecastDisplayData.createMock()).eraseToAnyPublisher()
+      Just(ForecastDisplayData.createMock()).setFailureType(to: SimpleError.self).eraseToAnyPublisher()
     }, retrieveCurrentWeather: { _ in
-      Just(CurrentWeatherDisplayData.createMock()).eraseToAnyPublisher()
+      Just(CurrentWeatherDisplayData.createMock()).setFailureType(to: SimpleError.self).eraseToAnyPublisher()
     }
   )
 }
 
 extension WeatherServiceCombine {
   static func retrieveWeatherForecast(from loadCriteria: LoadCriteria) -> DataPublisher<ForecastDisplayData?> {
-    guard let unwrappedURL = weatherServiceUrl(path: "forecast", loadCriteria: loadCriteria) else { return Just(nil ).eraseToAnyPublisher() }
+    guard let unwrappedURL = weatherServiceUrl(path: "forecast", loadCriteria: loadCriteria) else {
+      return Just(nil).setFailureType(to: SimpleError.self).eraseToAnyPublisher()
+    }
     
     return URLSession.shared.dataTaskPublisher(for: unwrappedURL)
       .map { $0.data }
       .decode(type: ForecastDisplayData?.self, decoder: JSONDecoder())
-      .replaceError(with: nil)
+      .mapError { _ in
+        SimpleError()
+      }
       .eraseToAnyPublisher()
   }
   
   static func retrieveCurrentWeather(from loadCriteria: LoadCriteria) -> DataPublisher<CurrentWeatherDisplayData?> {
-    guard let unwrappedURL = weatherServiceUrl(path: "weather", loadCriteria: loadCriteria) else { return Just(nil ).eraseToAnyPublisher() }
+    guard let unwrappedURL = weatherServiceUrl(path: "weather", loadCriteria: loadCriteria) else {
+      return Just(nil).setFailureType(to: SimpleError.self).eraseToAnyPublisher()
+    }
     
     return URLSession.shared.dataTaskPublisher(for: unwrappedURL)
       .map { $0.data }
       .decode(type: CurrentWeatherDisplayData?.self, decoder: JSONDecoder())
-      .replaceError(with: nil)
+      .mapError { _ in
+        SimpleError()
+      }
       .eraseToAnyPublisher()
   }
 }

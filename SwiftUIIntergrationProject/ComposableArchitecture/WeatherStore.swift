@@ -17,12 +17,14 @@ struct WeatherStore {
   @ObservableState
   struct State: Equatable {
     var weatherState: ViewDataState<WeatherDisplayData> = .loading
+    var selectedAddress: String = Addresses[0]
   }
   
   enum Action {
-    case loadWeather(String)
+    case loadWeather
     case dataLoaded(WeatherDisplayData)
     case error
+    case selectWeather(String)
   }
   
   private enum CancelID {
@@ -32,17 +34,20 @@ struct WeatherStore {
   var body: some Reducer<State, Action> {
     Reduce { state, action in
       switch action {
-      case let .loadWeather(address):
+      case .loadWeather:
+        let address = state.selectedAddress
         return .publisher {
           let loadCriteria = Environment.current.addressService.coordinatePublisher(address).compactMap{$0}.map(LoadCriteria.init)
           let currentWeather = loadCriteria.flatMap(weatherService.retrieveCurrentWeather)
           let forecast = loadCriteria.flatMap(weatherService.retrieveWeatherForecast)
           let combinedWeather = currentWeather.combineLatest(forecast)
-            .receive(on: RunLoop.main)
+            .receive(on: Environment.current.combineScheduler)
             .map { output in
-            guard let currentWeather = output.0, let forecast = output.1 else { return WeatherStore.Action.error }
-            let weather = WeatherDisplayData.init(currentWeather: currentWeather, forecast: forecast)
-            return .dataLoaded(weather)
+              guard let currentWeather = output.0, let forecast = output.1 else { return WeatherStore.Action.error }
+              let weather = WeatherDisplayData.init(currentWeather: currentWeather, forecast: forecast)
+              return .dataLoaded(weather)
+            }.catch { _ in
+              return Just(WeatherStore.Action.error)
             }
           return combinedWeather
         }.cancellable(id: CancelID.loadWeather, cancelInFlight: true)
@@ -52,6 +57,11 @@ struct WeatherStore {
       case .error:
         state.weatherState = .error
         return .none
+      case let .selectWeather(newWeather):
+        state.weatherState = .loading
+        if newWeather == state.selectedAddress { return .none }
+        state.selectedAddress = newWeather
+        return .send(.loadWeather)
       }
     }
   }

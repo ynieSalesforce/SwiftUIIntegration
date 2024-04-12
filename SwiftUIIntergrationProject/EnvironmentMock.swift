@@ -15,6 +15,7 @@ extension Environment {
     Environment(
       scheduler: TestScheduler(),
       backgroundScheduler: TestScheduler(),
+      runLoop: .init(),
       weatherServiceReactive: .mock,
       addressService: .mock
     )

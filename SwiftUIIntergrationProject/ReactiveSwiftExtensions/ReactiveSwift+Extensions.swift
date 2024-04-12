@@ -116,7 +116,7 @@ public typealias MaterializedSignalProducer<Value, Error: Swift.Error> = SignalP
 public typealias MaterializedDataLoadingProducer<Value> = MaterializedSignalProducer<Value, Error>
 
 public typealias DataProducer<T> = SignalProducer<T, Error>
-public typealias DataPublisher<T> = AnyPublisher<T, Never>
+public typealias DataPublisher<T> = AnyPublisher<T, SimpleError>
 
 public typealias TriggerSignal = Signal<Void, Never>
 public typealias TriggerProducer = SignalProducer<Void, Never>

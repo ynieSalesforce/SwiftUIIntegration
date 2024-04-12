@@ -13,7 +13,7 @@ import Combine
 struct AddressService {
   var coordinates: (String) -> ValueSignalProducer<CLLocation?> = coordinates
   var asyncCoordinate: (String) async -> CLLocationCoordinate2D? = asyncCoordinate
-  var coordinatePublisher: (String) -> DataPublisher<CLLocation?> = coordinatePub
+  var coordinatePublisher: (String) -> AnyPublisher<CLLocation?, Never> = coordinatePub
 }
 
 extension AddressService {
@@ -34,7 +34,7 @@ extension AddressService {
     return location.coordinate
   }
   
-  static func coordinatePub(from address: String) -> DataPublisher<CLLocation?> {
+  static func coordinatePub(from address: String) -> AnyPublisher<CLLocation?, Never> {
     return Future<CLLocation?, Never> { promise in
       let geoCoder = CLGeocoder()
       geoCoder.geocodeAddressString(address) { (placemarks, error) in

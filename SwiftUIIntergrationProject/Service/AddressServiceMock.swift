@@ -21,7 +21,7 @@ extension AddressService {
     return .init(latitude: 0, longitude: 0)
   }
   
-  static func coordinatePubMock(from address: String) -> DataPublisher<CLLocation?> {
+  static func coordinatePubMock(from address: String) -> AnyPublisher<CLLocation?, Never> {
     Just(CLLocation.init(latitude: 0, longitude: 0)).eraseToAnyPublisher()
   }
   
