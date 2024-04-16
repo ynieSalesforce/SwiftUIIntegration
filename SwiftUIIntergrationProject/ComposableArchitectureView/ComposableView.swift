@@ -15,15 +15,30 @@ struct ComposableView: View {
   var body: some View {
     switch store.weatherState {
     case .dataLoaded(let weatherData):
-      ScrollView {
-        VStack(content: {
-          weatherSelectionView()
-            .padding()
-          CurrentWeatherView(currentWeather: weatherData.currentWeather)
-          ForecastWeatherView(forecast: weatherData.forecast)
-        })
-      }.refreshable {
-        store.send(.loadWeather)
+      NavigationStack {
+        ScrollView {
+          VStack(content: {
+            weatherSelectionView()
+              .padding()
+            CurrentWeatherView(currentWeather: weatherData.currentWeather)
+            ForecastWeatherView(forecast: weatherData.forecast)
+            
+            Button("Show Address Details") {
+              store.send(.hideContainerNav(true))
+              store.send(.showWeatherDetails)
+            }.buttonStyle(GrowingButton())
+              .padding()
+          })
+        }.refreshable {
+          store.send(.loadWeather)
+        }
+        .navigationDestination(
+          item: $store.scope(state: \.destination?.additionalWeather, action: \.destination.additionalWeather)
+        ) { store in
+          ListWeatherView(store: store)
+        }.onAppear {
+          store.send(.hideContainerNav(false))
+        }
       }
     case .loading:
       ProgressView().padding()

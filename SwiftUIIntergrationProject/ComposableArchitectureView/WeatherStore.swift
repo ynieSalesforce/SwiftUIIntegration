@@ -11,6 +11,12 @@ import Combine
 
 @Reducer
 struct WeatherStore {
+  var delegate: HostControllerDelegate
+  
+  @Reducer(state: .equatable)
+  enum Destination {
+    case additionalWeather(ListWeatherStore)
+  }
   
   @Dependency(\.weatherServiceCombine) var weatherService
   
@@ -18,6 +24,7 @@ struct WeatherStore {
   struct State: Equatable {
     var weatherState: ViewDataState<WeatherDisplayData> = .loading
     var selectedAddress: String = Addresses[0]
+    @Presents var destination: Destination.State?
   }
   
   enum Action {
@@ -25,6 +32,9 @@ struct WeatherStore {
     case dataLoaded(WeatherDisplayData)
     case error
     case selectWeather(String)
+    case showWeatherDetails
+    case destination(PresentationAction<Destination.Action>)
+    case hideContainerNav(Bool)
   }
   
   private enum CancelID {
@@ -55,15 +65,24 @@ struct WeatherStore {
         state.weatherState = .dataLoaded(data)
         return .none
       case .error:
-        state.weatherState = .error
+        state.weatherState = .error(nil)
         return .none
       case let .selectWeather(newWeather):
         state.weatherState = .loading
         if newWeather == state.selectedAddress { return .none }
         state.selectedAddress = newWeather
         return .send(.loadWeather)
+      case .showWeatherDetails:
+        state.destination = .additionalWeather(.init(location: state.selectedAddress))
+        return .none
+      case .hideContainerNav(let hide):
+        delegate.hideNavigation(hide: hide)
+        return .none
+      case .destination:
+        return .none
       }
     }
+    .ifLet(\.$destination, action: \.destination)
   }
 
 }

@@ -25,7 +25,11 @@ extension DependencyValues {
   }
 }
 
-public struct SimpleError: Error {}
+public enum SimpleError: Error, Equatable {
+  case address
+  case dataLoad(String)
+  case dataParse(String?)
+}
 
 extension WeatherServiceCombine: DependencyKey {
   static let liveValue = Self(
@@ -63,8 +67,8 @@ extension WeatherServiceCombine {
     return URLSession.shared.dataTaskPublisher(for: unwrappedURL)
       .map { $0.data }
       .decode(type: ForecastDisplayData?.self, decoder: JSONDecoder())
-      .mapError { _ in
-        SimpleError()
+      .mapError { error in
+        SimpleError.dataParse(error.localizedDescription)
       }
       .eraseToAnyPublisher()
   }
@@ -77,8 +81,8 @@ extension WeatherServiceCombine {
     return URLSession.shared.dataTaskPublisher(for: unwrappedURL)
       .map { $0.data }
       .decode(type: CurrentWeatherDisplayData?.self, decoder: JSONDecoder())
-      .mapError { _ in
-        SimpleError()
+      .mapError { error in
+        SimpleError.dataParse(error.localizedDescription)
       }
       .eraseToAnyPublisher()
   }

@@ -10,10 +10,10 @@ import UIKit
 import SwiftUI
 import ComposableArchitecture
 
-class WeatherComposableController: BaseViewController {
+class WeatherComposableController: BaseViewController, HostControllerDelegate {
   override func configureUI() {
     let store: StoreOf<WeatherStore> = .init(initialState: .init()) {
-      WeatherStore()
+      WeatherStore(delegate: self)
     }
     let swiftUIView = ComposableView(store: store)
     let hosting = UIHostingController(rootView: swiftUIView)

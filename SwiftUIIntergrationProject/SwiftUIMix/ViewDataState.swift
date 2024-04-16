@@ -12,7 +12,7 @@ enum ViewDataState<T>: Equatable where T: Equatable {
   case dataLoaded(T)
   case empty
   case loading
-  case error
+  case error(SimpleError?)
 }
 
 protocol LoadingViewData<Model>: ObservableObject where Model: Equatable {

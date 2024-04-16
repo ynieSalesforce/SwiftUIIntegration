@@ -23,7 +23,7 @@ class SwiftUIMixViewModel: ObservableObject {
         case .value(let value):
           self?.weatherData = .dataLoaded(value)
         case .failed:
-          self?.weatherData = .error
+          self?.weatherData = .error(nil)
         default: break
         }
       }
