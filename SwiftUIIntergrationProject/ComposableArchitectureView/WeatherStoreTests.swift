@@ -24,7 +24,7 @@ final class WeatherStoreTests: QuickSpec {
         Environment.current = .mock()
         Environment.current.combineScheduler = runLoop.eraseToAnyScheduler()
         store = .init(initialState: .init(), reducer: {
-          WeatherStore.init()
+          WeatherStore.init(delegate: nil)
         })
       }
       
@@ -65,9 +65,9 @@ final class WeatherStoreTests: QuickSpec {
         }, withDependencies: { input in
           input.weatherServiceCombine = .init(
             retrieveWeatherForecast: { _ in
-              Fail(error: SimpleError()).eraseToAnyPublisher()
+              Fail(error: SimpleError.address).eraseToAnyPublisher()
             }, retrieveCurrentWeather: { _ in
-              Fail(error: SimpleError()).eraseToAnyPublisher()
+              Fail(error: SimpleError.address).eraseToAnyPublisher()
             })
         })
         

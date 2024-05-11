@@ -85,3 +85,16 @@ struct Wind: Codable, Equatable {
   let speed: Double
   let deg: Int
 }
+
+extension Wind {
+  var direction: String {
+    if deg >= 23 && deg < 68 { return "Northeast" }
+    if deg >= 68 && deg < 113 { return "East" }
+    if deg >= 113 && deg < 158 { return "Southeast" }
+    if deg >= 158 && deg < 203 { return "South" }
+    if deg >= 203 && deg < 248 { return "Southwest" }
+    if deg >= 248 && deg < 293 { return "West" }
+    if deg >= 293 && deg < 338 { return "Northwest" }
+    return "North"
+  }
+}

@@ -48,6 +48,7 @@
 		9B652A112BC851400038ADFC /* ForecastWeatherViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B652A102BC851400038ADFC /* ForecastWeatherViewSnapshotTests.swift */; };
 		9B652A132BC851950038ADFC /* CurrentWeatherViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B652A122BC851950038ADFC /* CurrentWeatherViewSnapshotTests.swift */; };
 		9B652A152BC851E10038ADFC /* WeatherStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B652A142BC851E10038ADFC /* WeatherStoreTests.swift */; };
+		9B7651D12BEF1C5A009CCC56 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7651D02BEF1C5A009CCC56 /* Double+Extensions.swift */; };
 		9B98F4702BCDE517008B5876 /* ListWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98F46F2BCDE517008B5876 /* ListWeatherView.swift */; };
 		9B98F4722BCDE523008B5876 /* ListWeatherStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98F4712BCDE523008B5876 /* ListWeatherStore.swift */; };
 		9B98F4742BCEDB57008B5876 /* HostControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98F4732BCEDB57008B5876 /* HostControllerDelegate.swift */; };
@@ -138,6 +139,7 @@
 		9B652A102BC851400038ADFC /* ForecastWeatherViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherViewSnapshotTests.swift; sourceTree = "<group>"; };
 		9B652A122BC851950038ADFC /* CurrentWeatherViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewSnapshotTests.swift; sourceTree = "<group>"; };
 		9B652A142BC851E10038ADFC /* WeatherStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStoreTests.swift; sourceTree = "<group>"; };
+		9B7651D02BEF1C5A009CCC56 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		9B98F46F2BCDE517008B5876 /* ListWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWeatherView.swift; sourceTree = "<group>"; };
 		9B98F4712BCDE523008B5876 /* ListWeatherStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWeatherStore.swift; sourceTree = "<group>"; };
 		9B98F4732BCEDB57008B5876 /* HostControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostControllerDelegate.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				9BD0A8EF2BBF996F00953018 /* CGFloat+Extensions.swift */,
+				9B7651D02BEF1C5A009CCC56 /* Double+Extensions.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 			files = (
 				9BD0A9022BC08ADA00953018 /* UIKitReactiveController.swift in Sources */,
 				9B1FE3742BC49BAE00F0A259 /* CurrentWeatherDisplayData.swift in Sources */,
+				9B7651D12BEF1C5A009CCC56 /* Double+Extensions.swift in Sources */,
 				9B1FE3B22BC722EF00F0A259 /* ComposableView.swift in Sources */,
 				9B1FE3952BC5DC2800F0A259 /* ForecastDisplayDataMock.swift in Sources */,
 				9B98F4742BCEDB57008B5876 /* HostControllerDelegate.swift in Sources */,

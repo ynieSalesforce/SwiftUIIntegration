@@ -52,7 +52,7 @@ struct ForecastWeatherCell: View {
       Text(listItem.displayDate)
         .padding()
         .font(.title3)
-      Text("Temperature: \(listItem.temperatures.temp)")
+      Text("Temperature: \(listItem.temperatures.temp.formattedRoundedWholeNumber()) F")
         .padding()
         .font(.body)
       
@@ -61,16 +61,24 @@ struct ForecastWeatherCell: View {
         .font(.body)
       
       if let rain = listItem.rain {
-        Text("Wind: \(listItem.wind.speed)")
+        Text("Wind: \(listItem.wind.speed.formattedRoundedWholeNumber()) mph")
           .padding()
           .font(.body)
         
-        Text("Rain: \(rain.the3H)")
+        Text("Wind direction: \(listItem.wind.direction)")
+          .padding()
+          .font(.body)
+        
+        Text("Rain: \(rain.the3H.formattedRoundedWholeNumber()) inches")
           .padding()
           .font(.body)
           .frame(maxHeight: .infinity, alignment: .bottom)
       } else {
-        Text("Wind: \(listItem.wind.speed)")
+        Text("Wind direction: \(listItem.wind.direction)")
+          .padding()
+          .font(.body)
+        
+        Text("Wind: \(listItem.wind.speed.formattedRoundedWholeNumber()) mph")
           .padding()
           .font(.body)
           .frame(maxHeight: .infinity, alignment: .bottom)

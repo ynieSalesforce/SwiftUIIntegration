@@ -11,7 +11,7 @@ import Combine
 
 @Reducer
 struct WeatherStore {
-  var delegate: HostControllerDelegate
+  var delegate: HostControllerDelegate?
   
   @Reducer(state: .equatable)
   enum Destination {
@@ -76,7 +76,7 @@ struct WeatherStore {
         state.destination = .additionalWeather(.init(location: state.selectedAddress))
         return .none
       case .hideContainerNav(let hide):
-        delegate.hideNavigation(hide: hide)
+        delegate?.hideNavigation(hide: hide)
         return .none
       case .destination:
         return .none

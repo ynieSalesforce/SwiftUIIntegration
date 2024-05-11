@@ -22,12 +22,17 @@ struct CurrentWeatherView: View {
         .foregroundColor(.primary)
         .padding(.bottom, 16)
       
-      Text("Temperature: \(currentWeather.main.temp)")
+      Text("Temperature: \(currentWeather.main.temp.formattedRoundedWholeNumber()) F")
         .font(.title3)
         .foregroundColor(.primary)
         .padding(.bottom, 16)
       
-      Text("Wind: \(currentWeather.wind.speed)")
+      Text("Wind: \(currentWeather.wind.speed.formattedRoundedWholeNumber()) mph")
+        .font(.title3)
+        .foregroundColor(.primary)
+        .padding(.bottom, 16)
+      
+      Text("Wind direction: \(currentWeather.wind.direction)")
         .font(.title3)
         .foregroundColor(.primary)
         .padding(.bottom, 16)
