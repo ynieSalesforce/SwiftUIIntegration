@@ -101,7 +101,7 @@
 /* Begin PBXFileReference section */
 		9B1FE3612BC0946300F0A259 /* LoadCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCriteria.swift; sourceTree = "<group>"; };
 		9B1FE3642BC0A09200F0A259 /* Addresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addresses.swift; sourceTree = "<group>"; };
-		9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; };
+		9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9B1FE3682BC0EE0500F0A259 /* ForecastDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDisplayData.swift; sourceTree = "<group>"; };
 		9B1FE36A2BC497EA00F0A259 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		9B1FE36D2BC4990400F0A259 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +296,15 @@
 			path = ModifiersExtensions;
 			sourceTree = "<group>";
 		};
+		9B7651CF2BEF08F2009CCC56 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9BBD8CFE2BBC561000A5F295 /* Assets.xcassets */,
+				9BBD8D002BBC561000A5F295 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		9B98F46E2BCDE259008B5876 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +337,7 @@
 		9BBD8CF42BBC560F00A5F295 /* SwiftUIIntergrationProject */ = {
 			isa = PBXGroup;
 			children = (
+				9B7651CF2BEF08F2009CCC56 /* Resources */,
 				9B327CC12BC8CE120031A858 /* ModifiersExtensions */,
 				9B1FE3AA2BC6F46100F0A259 /* ComposableArchitectureView */,
 				9B1FE3842BC507B000F0A259 /* SwiftUIMix */,
@@ -339,11 +349,9 @@
 				9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */,
 				9BD0A8EA2BBE1A4400953018 /* OpenWeatherAPIKey.swift */,
 				9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */,
-				9BBD8CFE2BBC561000A5F295 /* Assets.xcassets */,
-				9BBD8D002BBC561000A5F295 /* LaunchScreen.storyboard */,
-				9BBD8D032BBC561000A5F295 /* Info.plist */,
 				9B1FE36A2BC497EA00F0A259 /* Environment.swift */,
 				9B1FE3A72BC63EB500F0A259 /* EnvironmentMock.swift */,
+				9BBD8D032BBC561000A5F295 /* Info.plist */,
 			);
 			path = SwiftUIIntergrationProject;
 			sourceTree = "<group>";

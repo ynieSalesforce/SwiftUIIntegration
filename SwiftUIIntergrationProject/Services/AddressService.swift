@@ -20,7 +20,12 @@ extension AddressService {
   static var live = AddressService()
 }
 
-extension AddressService {  
+/*
+ This service returns addresses in its various permutations.
+ It does not return an error, but in an ideal world, it should return an address/coordinates
+ not found error
+*/
+extension AddressService {
   static func asyncCoordinate(from address: String) async -> CLLocationCoordinate2D? {
     let geocoder = CLGeocoder()
     

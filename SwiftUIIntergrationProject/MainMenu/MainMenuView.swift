@@ -14,7 +14,7 @@ enum DemoType {
   case swiftUI
 }
 
-extension DemoType {
+extension DemoType: CaseIterable {
   var title: String {
     switch self {
     case .uiKit:
@@ -32,7 +32,7 @@ protocol MainMenuViewDelegate {
 }
 
 struct MainMenuView: View {
-  private let options: [DemoType] = [.uiKit, .mix, .swiftUI]
+  private let options: [DemoType] = DemoType.allCases
   let delegate: MainMenuViewDelegate?
   
   var body: some View {
