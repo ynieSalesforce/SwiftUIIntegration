@@ -51,3 +51,42 @@ class SwiftUIMixViewModel: ObservableObject {
 }
 
 typealias AsyncResultStream<T> = AsyncStream<Result<T, Error>>
+
+/**
+ @MainActor
+ func fetchContinueData(refresh: Bool = false) async {
+  for await data in doFetchAsyncStreamFunction(refresh) {
+    switch data {
+    case let .success(model):
+      if model.sections.isEmpty {
+        continueLearning = .empty
+      } else {
+        continueLearning = .dataLoaded(model)
+      }
+    case let .failure(error):
+      continueLearning.errorLoaded(with: error)
+    }
+    if refresh { return }
+  }
+ }
+ 
+ /// Returns stream of of data
+ /// - Parameter refresh:
+ private func doFetchAsyncStreamFunction(_: Bool) -> AsyncResultStream<ContainerModel> {
+  return AsyncStream { continuation in
+    Environment.current.services.getSomeUserData()
+    .start(on: Environment.current.scheduler)
+    .observe(on: UIScheduler())
+    .materialize()
+    .startWithValues { [weak self] event in
+      switch event {
+      case let .value(data):
+        let data = mapDataFunction(data: data)
+        continuation.yield(.success(data))
+      case let .failed(error):
+        continuation.yield(.failure(error))
+      default: break
+    }
+  }
+ }
+ */

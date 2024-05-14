@@ -63,3 +63,19 @@ final class MixViewModelTests: QuickSpec {
 enum TestError: Error {
   case unableToLoad
 }
+
+/**
+
+it("handles continue learning") {
+  Environment.current.services.getData = _fetchData
+  let viewModel = ViewModel(delegate: nil)
+  Task { await viewModel.fechFunction() }
+  await scheduler.run()
+  switch viewModel.publishedVar {
+  case let .dataLoaded(model):
+      Write tests here
+  default:
+    fail("Incorrect model result")
+  }
+}
+ */
