@@ -11,7 +11,7 @@ import Foundation
 struct ForecastDisplayData: Codable, Equatable {
   let cod: String
   let message, cnt: Int
-  let list: [List]
+  let list: [ForecastList]
   let city: City
 }
 
@@ -22,7 +22,7 @@ struct City: Codable, Equatable  {
 }
 
   // MARK: - List
-struct List: Codable, Equatable  {
+struct ForecastList: Codable, Equatable  {
   let dt: Int
   let temperatures: Temperature
   let weather: [Weather]
@@ -36,7 +36,7 @@ struct List: Codable, Equatable  {
   }
 }
 
-extension List {
+extension ForecastList {
   var displayDate: String {
     let timeInterval = Date(timeIntervalSince1970: TimeInterval(dt))
     let dateFormatter = DateFormatter()

@@ -34,7 +34,7 @@ class WeatherForecastCell: UITableViewCell, Reusable {
     return label
   }()
   
-  func configure(with list: List) {
+  func configure(with list: ForecastList) {
     timeLabel.text = list.displayDate
     temperatureLabel.text = "Temperature: \(list.temperatures.temp.formattedRoundedWholeNumber())F"
     weatherLabel.text = list.weather.first?.description

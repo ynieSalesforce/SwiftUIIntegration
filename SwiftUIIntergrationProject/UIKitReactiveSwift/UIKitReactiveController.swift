@@ -12,7 +12,7 @@ import ReactiveCocoa
 import SnapKit
 
 class UIKitReactiveController: BaseViewController {
-  fileprivate var forecastData: [List] = []
+  fileprivate var forecastData: [ForecastList] = []
   fileprivate var headerData: CurrentWeatherDisplayData?
   private let locationProperty: MutableProperty<String> = .init(Addresses[0])
   

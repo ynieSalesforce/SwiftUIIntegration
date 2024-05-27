@@ -45,7 +45,7 @@ struct ForecastWeatherView: View {
 }
 
 struct ForecastWeatherCell: View {
-  var listItem: List
+  var listItem: ForecastList
   
   var body: some View {
     VStack(spacing: 0) {
@@ -90,7 +90,7 @@ struct ForecastWeatherCell: View {
   }
 }
 
-extension List: Identifiable {
+extension ForecastList: Identifiable {
   public typealias ID = String
   var id: String {
     return "\(dt)"

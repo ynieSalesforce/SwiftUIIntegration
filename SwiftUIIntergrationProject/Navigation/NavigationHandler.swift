@@ -17,6 +17,8 @@ extension UIViewController {
       navigateMixedView()
     case .swiftUI:
       navigateComposableView()
+    case .infiniteLoading:
+      navigateInfiniteLoading()
     }
   }
   
@@ -32,6 +34,11 @@ extension UIViewController {
   
   private func navigateComposableView() {
     let controller = WeatherComposableController()
+    navigationController?.pushViewController(controller, animated: true)
+  }
+  
+  private func navigateInfiniteLoading() {
+    let controller = InfiniteLoadingController()
     navigationController?.pushViewController(controller, animated: true)
   }
 }

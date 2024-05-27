@@ -12,6 +12,7 @@ enum DemoType {
   case uiKit
   case mix
   case swiftUI
+  case infiniteLoading
 }
 
 extension DemoType: CaseIterable {
@@ -23,6 +24,8 @@ extension DemoType: CaseIterable {
       return "SwiftUI with Async and Reactive Swift View Model"
     case .swiftUI:
       return "SwiftUI and Composable Architecture"
+    case .infiniteLoading:
+      return "Infinite Loading"
     }
   }
 }
