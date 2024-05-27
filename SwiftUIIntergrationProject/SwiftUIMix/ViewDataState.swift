@@ -20,3 +20,14 @@ protocol LoadingViewData<Model>: ObservableObject where Model: Equatable {
   var state: ViewDataState<Model> { get set }
   func retrieveData()
 }
+
+extension ViewDataState {
+  var data: T? {
+    switch self {
+    case .dataLoaded(let data):
+      return data
+    default:
+      return nil
+    }
+  }
+}

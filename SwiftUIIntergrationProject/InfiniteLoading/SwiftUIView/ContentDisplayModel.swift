@@ -7,42 +7,42 @@
 
 import Foundation
 
-struct ContentModel: Identifiable, Pageable {
-  typealias Value = Content
+struct ContentDisplayModel: Identifiable, Pageable, Equatable {
+  typealias Value = ContentData
   var pageInfo: PageInfo?
   let id: String
-  var items: [Content]
+  var items: [ContentData]
 }
 
-struct Content: Identifiable, Hashable {
+struct ContentData: Identifiable, Hashable {
   let id: String
   let label: String
   let content: String
 }
 
-extension ContentModel {
+extension ContentDisplayModel {
   static func createMock(
     id: String = UUID().uuidString,
     numberOfItems: Int,
     pageInfo: PageInfo? = .init(hasNextPage: true, endCursor: "someEndCursor")
-  ) -> ContentModel {
+  ) -> ContentDisplayModel {
     let count = 0...numberOfItems
     let items = count.map {
-      Content.createMock(itemNumber: $0, cursor: pageInfo?.endCursor)
+      ContentData.createMock(itemNumber: $0, cursor: pageInfo?.endCursor)
     }
-    return ContentModel(pageInfo: pageInfo, id: id, items: items)
+    return ContentDisplayModel(pageInfo: pageInfo, id: id, items: items)
   }
 }
 
-extension Content {
+extension ContentData {
   static func createMock(
     id: String = UUID().uuidString,
     itemNumber: Int,
     cursor: String?
-  ) -> Content {
+  ) -> ContentData {
     let label = "Label: \(randomString(length: itemNumber)) with cursor: \(cursor ?? "No Cursor")"
     let content = "Content: \(randomString(length: itemNumber)) with cursor: \(cursor ?? "No Cursor")"
-    return Content.init(id: id, label: label, content: content)
+    return ContentData.init(id: id, label: label, content: content)
   }
 }
 
