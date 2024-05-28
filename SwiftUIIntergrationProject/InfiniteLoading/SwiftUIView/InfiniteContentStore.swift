@@ -13,22 +13,26 @@ import Combine
 @Reducer
 struct InfiniteContentStore {
   @Dependency(\.infiniteContentService) var contentService
+  @Dependency(\.continuousClock) var clock
   
   @ObservableState
   struct State: Equatable {
     var contentItems: ViewDataState<ContentDisplayModel> = .loading
+    var displayItems: ContentDisplayModel = .init(items: [])
   }
   
   enum Action {
     case loadInitialContent
     case loadNextPage(PageInfo?)
     case dataLoaded(ContentDisplayModel)
+    case delayNextPageLoaded(ContentDisplayModel)
     case nextPageDataLoaded(ContentDisplayModel)
     case error
   }
   
   private enum CancelID {
     case loadInfiniteData
+    case loadNextPageData
   }
   
   var body: some Reducer<State, Action> {
@@ -48,16 +52,26 @@ struct InfiniteContentStore {
         return .publisher {
           contentService.retrieveContent(pageInfo)
             .map {
-              return .nextPageDataLoaded($0)
+              return .delayNextPageLoaded($0)
             }.catch { _ in
               return Just(InfiniteContentStore.Action.error)
             }
-        }.cancellable(id: CancelID.loadInfiniteData, cancelInFlight: true)
+        }.cancellable(id: CancelID.loadNextPageData, cancelInFlight: true)
       case .dataLoaded(let displayData):
         state.contentItems = .dataLoaded(displayData)
         return .none
+      case .delayNextPageLoaded(let displayData):
+        return .run { send in
+          try await self.clock.sleep(for: .seconds(1))
+          await send(.nextPageDataLoaded(displayData))
+        }
+        .cancellable(id: CancelID.loadNextPageData)
       case .nextPageDataLoaded(let displayData):
-        var currentContent = state.contentItems.data ?? .createMock(numberOfItems: 25)
+        guard var currentContent = state.contentItems.data else {
+          return .run { send in
+            await send(.dataLoaded(displayData))
+          }.cancellable(id: CancelID.loadInfiniteData)
+        }
         currentContent.items.append(contentsOf: displayData.items)
         currentContent.pageInfo = displayData.pageInfo
         state.contentItems = .dataLoaded(currentContent)
