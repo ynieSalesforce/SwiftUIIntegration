@@ -56,7 +56,11 @@ struct InfiniteLoadingView<
   @ViewBuilder
   private func loadingCell() -> some View {
     VStack(alignment: .center, spacing: 0) {
-      ProgressView().padding()
+      HStack {
+        Spacer()
+        ProgressView()
+        Spacer()
+      }.padding(.vertical, 16)
     }
   }
 }

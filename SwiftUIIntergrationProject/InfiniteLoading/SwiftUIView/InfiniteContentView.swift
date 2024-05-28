@@ -49,6 +49,6 @@ struct InfiniteListItem: View {
         .lineLimit(nil)
         .padding([.horizontal, .bottom], 16)
         .fixedSize(horizontal: false, vertical: true)
-    }.listRowSeparator(.hidden)
+    }.listRowSeparator(.visible)
   }
 }

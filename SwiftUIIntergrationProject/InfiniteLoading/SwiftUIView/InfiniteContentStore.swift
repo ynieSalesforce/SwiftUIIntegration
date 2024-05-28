@@ -60,9 +60,9 @@ struct InfiniteContentStore {
       case .dataLoaded(let displayData):
         state.contentItems = .dataLoaded(displayData)
         return .none
-      case .delayNextPageLoaded(let displayData):
+      case .delayNextPageLoaded(let displayData): // Adds delay so we can see progress
         return .run { send in
-          try await self.clock.sleep(for: .seconds(1))
+          try await self.clock.sleep(for: .seconds(2))
           await send(.nextPageDataLoaded(displayData))
         }
         .cancellable(id: CancelID.loadNextPageData)
