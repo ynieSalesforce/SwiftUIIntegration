@@ -21,7 +21,7 @@ struct InfiniteContentStore {
   
   enum Action {
     case loadInitialContent
-    case loadNextPage(PageInfo)
+    case loadNextPage(PageInfo?)
     case dataLoaded(ContentDisplayModel)
     case nextPageDataLoaded(ContentDisplayModel)
     case error
@@ -44,6 +44,7 @@ struct InfiniteContentStore {
             }
         }.cancellable(id: CancelID.loadInfiniteData, cancelInFlight: true)
       case .loadNextPage(let pageInfo):
+        guard let pageInfo = pageInfo else { return .none }
         return .publisher {
           contentService.retrieveContent(pageInfo)
             .map {

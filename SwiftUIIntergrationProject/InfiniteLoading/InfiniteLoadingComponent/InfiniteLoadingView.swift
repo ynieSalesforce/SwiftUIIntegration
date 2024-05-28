@@ -24,15 +24,18 @@ struct InfiniteLoadingView<
   DisplayData: Pageable<Value>,
   Value: Identifiable
 >: View {
-  @Binding var displayData: any Pageable<Value>
-  private let contentView: (Value) -> ContentView
   
+  @State var displayData: any Pageable<Value>
+  private let contentView: (Value) -> ContentView
+  private let viewMoreAction: () -> Void
   init(
-    displayData: Binding<any Pageable<Value>>,
-    @ViewBuilder content: @escaping (Value) -> ContentView
+    displayData: any Pageable<Value>,
+    @ViewBuilder content: @escaping (Value) -> ContentView,
+    viewMoreAction: @escaping () -> Void
   ) {
-    _displayData = displayData
+    _displayData = State(initialValue: displayData)
     self.contentView = content
+    self.viewMoreAction = viewMoreAction
   }
   
   var body: some View {
@@ -41,7 +44,18 @@ struct InfiniteLoadingView<
         ForEach(displayData.items) { item in
           contentView(item)
         }
+        if displayData.pageInfo != nil {
+          loadingCell()
+            .onAppear(perform: viewMoreAction)
+        }
       }
+    }
+  }
+  
+  @ViewBuilder
+  private func loadingCell() -> some View {
+    VStack(alignment: .center, spacing: 0) {
+      Text("Loading")
     }
   }
 }

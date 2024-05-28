@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct ContentDisplayModel: Identifiable, Pageable, Equatable {
+struct ContentDisplayModel: Pageable, Equatable {
   typealias Value = ContentData
   var pageInfo: PageInfo?
-  let id: String
   var items: [ContentData]
 }
 
@@ -22,15 +21,14 @@ struct ContentData: Identifiable, Hashable {
 
 extension ContentDisplayModel {
   static func createMock(
-    id: String = UUID().uuidString,
     numberOfItems: Int,
     pageInfo: PageInfo? = .init(hasNextPage: true, endCursor: "someEndCursor")
   ) -> ContentDisplayModel {
-    let count = 0...numberOfItems
+    let count = 1...numberOfItems
     let items = count.map {
       ContentData.createMock(itemNumber: $0, cursor: pageInfo?.endCursor)
     }
-    return ContentDisplayModel(pageInfo: pageInfo, id: id, items: items)
+    return ContentDisplayModel(pageInfo: pageInfo, items: items)
   }
 }
 

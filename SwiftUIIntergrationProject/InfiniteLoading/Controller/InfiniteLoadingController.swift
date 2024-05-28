@@ -8,9 +8,13 @@
 import Foundation
 import SwiftUI
 import SnapKit
+import ComposableArchitecture
 
 class InfiniteLoadingController: UIViewController {
-  private lazy var contentView: InfiniteContentView = .init()
+  private lazy var infiniteStore: StoreOf<InfiniteContentStore> = .init(initialState: .init()) {
+    InfiniteContentStore()
+  }
+  private lazy var contentView: InfiniteContentView = .init(store: infiniteStore)
   
   override func viewDidLoad() {
     super.viewDidLoad()

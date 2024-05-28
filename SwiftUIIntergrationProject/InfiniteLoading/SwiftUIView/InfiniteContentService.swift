@@ -29,7 +29,6 @@ extension InfiniteContentService: DependencyKey {
   static let liveValue = Self(
     retrieveContent: { info in
       Just(retrieveData(from: info)).setFailureType(to: SimpleError.self)
-        .debounce(for: 0.8, scheduler: RunLoop.main)
         .eraseToAnyPublisher()
     }
   )
@@ -51,10 +50,12 @@ extension InfiniteContentService: DependencyKey {
   )
 }
 
+private let pageSize: Int = 15
+
 private func retrieveData(from pageInfo: PageInfo?) -> ContentDisplayModel {
   if let _ = pageInfo {
-    return .createMock(numberOfItems: 25, pageInfo: nil)
+    return .createMock(numberOfItems: pageSize, pageInfo: nil)
   } else {
-    return .createMock(numberOfItems: 25, pageInfo: .init(hasNextPage: true, endCursor: "test next page"))
+    return .createMock(numberOfItems: pageSize, pageInfo: .init(hasNextPage: true, endCursor: "test next page"))
   }
 }
