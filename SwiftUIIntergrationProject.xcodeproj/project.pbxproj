@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B056FE52C0C33C400240402 /* HigherOrderReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B056FE42C0C33C400240402 /* HigherOrderReducer.swift */; };
 		9B12B8002C0D096B00637D77 /* InfiniteLoadingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12B7FF2C0D096B00637D77 /* InfiniteLoadingReducer.swift */; };
 		9B12B8022C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12B8012C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift */; };
 		9B1FE3622BC0946300F0A259 /* LoadCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3612BC0946300F0A259 /* LoadCriteria.swift */; };
@@ -112,7 +111,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9B056FE42C0C33C400240402 /* HigherOrderReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigherOrderReducer.swift; sourceTree = "<group>"; };
 		9B12B7FF2C0D096B00637D77 /* InfiniteLoadingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteLoadingReducer.swift; sourceTree = "<group>"; };
 		9B12B8012C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleInfiniteLoadingStore.swift; sourceTree = "<group>"; };
 		9B1FE3612BC0946300F0A259 /* LoadCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCriteria.swift; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 		9B056FE32C0C33B500240402 /* HigherOrder_Reducers */ = {
 			isa = PBXGroup;
 			children = (
-				9B056FE42C0C33C400240402 /* HigherOrderReducer.swift */,
 				9B12B7FF2C0D096B00637D77 /* InfiniteLoadingReducer.swift */,
 				9B12B8012C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift */,
 				9BBCABF72C0E1ABA00DACA45 /* ExampleInfiniteLoadingView.swift */,
@@ -675,7 +672,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B056FE52C0C33C400240402 /* HigherOrderReducer.swift in Sources */,
 				9BBCABF62C0E046100DACA45 /* InfinitePagingDisplayDataService.swift in Sources */,
 				9BD0A9022BC08ADA00953018 /* UIKitReactiveController.swift in Sources */,
 				9B12B8022C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift in Sources */,
