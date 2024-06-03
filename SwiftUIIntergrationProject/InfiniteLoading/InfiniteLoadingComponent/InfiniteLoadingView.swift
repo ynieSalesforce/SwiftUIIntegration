@@ -14,8 +14,8 @@ public struct PageInfo: Equatable, Codable {
 }
 
 public protocol Pageable <Value> {
-  associatedtype Value: Identifiable & Hashable
-  var items: [Value] { get set }
+  associatedtype Value: Identifiable & Equatable
+  var items: [Value] { get }
   var pageInfo: PageInfo? { get set }
 }
 

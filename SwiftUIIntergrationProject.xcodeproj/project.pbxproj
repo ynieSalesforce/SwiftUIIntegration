@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B056FE52C0C33C400240402 /* HigherOrderReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B056FE42C0C33C400240402 /* HigherOrderReducer.swift */; };
+		9B12B8002C0D096B00637D77 /* InfiniteLoadingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12B7FF2C0D096B00637D77 /* InfiniteLoadingReducer.swift */; };
+		9B12B8022C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12B8012C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift */; };
 		9B1FE3622BC0946300F0A259 /* LoadCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3612BC0946300F0A259 /* LoadCriteria.swift */; };
 		9B1FE3652BC0A09200F0A259 /* Addresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3642BC0A09200F0A259 /* Addresses.swift */; };
 		9B1FE3672BC0A0FD00F0A259 /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */; };
@@ -106,6 +109,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B056FE42C0C33C400240402 /* HigherOrderReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigherOrderReducer.swift; sourceTree = "<group>"; };
+		9B12B7FF2C0D096B00637D77 /* InfiniteLoadingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteLoadingReducer.swift; sourceTree = "<group>"; };
+		9B12B8012C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleInfiniteLoadingStore.swift; sourceTree = "<group>"; };
 		9B1FE3612BC0946300F0A259 /* LoadCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCriteria.swift; sourceTree = "<group>"; };
 		9B1FE3642BC0A09200F0A259 /* Addresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addresses.swift; sourceTree = "<group>"; };
 		9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -216,6 +222,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B056FE32C0C33B500240402 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				9B056FE42C0C33C400240402 /* HigherOrderReducer.swift */,
+				9B12B7FF2C0D096B00637D77 /* InfiniteLoadingReducer.swift */,
+				9B12B8012C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
 		9B1FE3632BC0A08600F0A259 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +338,7 @@
 		9B93EACD2C0537500015D1D3 /* InfiniteLoading */ = {
 			isa = PBXGroup;
 			children = (
+				9B056FE32C0C33B500240402 /* Reducers */,
 				9B93EAD62C0540B30015D1D3 /* InfiniteLoadingComponent */,
 				9B93EAD12C0537AA0015D1D3 /* SwiftUIView */,
 				9B93EAD02C0537A00015D1D3 /* Controller */,
@@ -641,7 +658,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B056FE52C0C33C400240402 /* HigherOrderReducer.swift in Sources */,
 				9BD0A9022BC08ADA00953018 /* UIKitReactiveController.swift in Sources */,
+				9B12B8022C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift in Sources */,
 				9B1FE3742BC49BAE00F0A259 /* CurrentWeatherDisplayData.swift in Sources */,
 				9B7651D12BEF1C5A009CCC56 /* Double+Extensions.swift in Sources */,
 				9B1FE3B22BC722EF00F0A259 /* ComposableView.swift in Sources */,
@@ -690,6 +709,7 @@
 				9B1FE3722BC49B2F00F0A259 /* BaseDataViewModelInput.swift in Sources */,
 				9B1FE3AE2BC6F4B000F0A259 /* WeatherServiceURL.swift in Sources */,
 				9B1FE37B2BC4D50600F0A259 /* WeatherSectionHeader.swift in Sources */,
+				9B12B8002C0D096B00637D77 /* InfiniteLoadingReducer.swift in Sources */,
 				9B1FE3AC2BC6F49600F0A259 /* WeatherServiceCombine.swift in Sources */,
 				9B1FE3782BC4CD1200F0A259 /* Reactive+UIKit.swift in Sources */,
 				9B1FE3672BC0A0FD00F0A259 /* AddressService.swift in Sources */,

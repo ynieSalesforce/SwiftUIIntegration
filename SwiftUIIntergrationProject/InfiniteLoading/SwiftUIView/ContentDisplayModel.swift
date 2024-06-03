@@ -13,7 +13,7 @@ struct ContentDisplayModel: Pageable, Equatable {
   var items: [ContentData]
 }
 
-struct ContentData: Identifiable, Hashable {
+struct ContentData: Identifiable, Hashable, Equatable {
   let id: String
   let label: String
   let content: String
