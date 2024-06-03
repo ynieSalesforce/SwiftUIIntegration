@@ -66,6 +66,8 @@
 		9BAA25792BC7815F00AA42B3 /* AddressServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA25782BC7815F00AA42B3 /* AddressServiceMock.swift */; };
 		9BAA257B2BC7842900AA42B3 /* MixViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA257A2BC7842900AA42B3 /* MixViewModelTests.swift */; };
 		9BBCABF62C0E046100DACA45 /* InfinitePagingDisplayDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCABF52C0E046100DACA45 /* InfinitePagingDisplayDataService.swift */; };
+		9BBCABF82C0E1ABA00DACA45 /* ExampleInfiniteLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCABF72C0E1ABA00DACA45 /* ExampleInfiniteLoadingView.swift */; };
+		9BBCABFA2C0E1B7C00DACA45 /* InfiniteLoadingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCABF92C0E1B7C00DACA45 /* InfiniteLoadingComponent.swift */; };
 		9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */; };
 		9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */; };
 		9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF92BBC560F00A5F295 /* ViewController.swift */; };
@@ -167,6 +169,8 @@
 		9BAA25782BC7815F00AA42B3 /* AddressServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressServiceMock.swift; sourceTree = "<group>"; };
 		9BAA257A2BC7842900AA42B3 /* MixViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixViewModelTests.swift; sourceTree = "<group>"; };
 		9BBCABF52C0E046100DACA45 /* InfinitePagingDisplayDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinitePagingDisplayDataService.swift; sourceTree = "<group>"; };
+		9BBCABF72C0E1ABA00DACA45 /* ExampleInfiniteLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleInfiniteLoadingView.swift; sourceTree = "<group>"; };
+		9BBCABF92C0E1B7C00DACA45 /* InfiniteLoadingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteLoadingComponent.swift; sourceTree = "<group>"; };
 		9BBD8CF22BBC560F00A5F295 /* SwiftUIIntergrationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIIntergrationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 				9B056FE42C0C33C400240402 /* HigherOrderReducer.swift */,
 				9B12B7FF2C0D096B00637D77 /* InfiniteLoadingReducer.swift */,
 				9B12B8012C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift */,
+				9BBCABF72C0E1ABA00DACA45 /* ExampleInfiniteLoadingView.swift */,
+				9BBCABF92C0E1B7C00DACA45 /* InfiniteLoadingComponent.swift */,
 			);
 			path = HigherOrder_Reducers;
 			sourceTree = "<group>";
@@ -673,6 +679,7 @@
 				9BBCABF62C0E046100DACA45 /* InfinitePagingDisplayDataService.swift in Sources */,
 				9BD0A9022BC08ADA00953018 /* UIKitReactiveController.swift in Sources */,
 				9B12B8022C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift in Sources */,
+				9BBCABF82C0E1ABA00DACA45 /* ExampleInfiniteLoadingView.swift in Sources */,
 				9B1FE3742BC49BAE00F0A259 /* CurrentWeatherDisplayData.swift in Sources */,
 				9B7651D12BEF1C5A009CCC56 /* Double+Extensions.swift in Sources */,
 				9B1FE3B22BC722EF00F0A259 /* ComposableView.swift in Sources */,
@@ -696,6 +703,7 @@
 				9B1FE3862BC507C400F0A259 /* SwiftUIMixView.swift in Sources */,
 				9BD0A8ED2BBE1C7100953018 /* MainMenuView.swift in Sources */,
 				9B1FE3912BC5D68500F0A259 /* OnLoad.swift in Sources */,
+				9BBCABFA2C0E1B7C00DACA45 /* InfiniteLoadingComponent.swift in Sources */,
 				9B1FE3B02BC6FE0F00F0A259 /* WeatherStore.swift in Sources */,
 				9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */,
 				9B93EACF2C0537620015D1D3 /* InfiniteLoadingController.swift in Sources */,

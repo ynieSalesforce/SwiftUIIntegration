@@ -21,8 +21,8 @@ public struct PageInfo: Equatable, Codable {
 
 @ObservableState
 struct InfiniteLoadingState<Value: Identifiable & Equatable & Hashable>: Equatable {
-  var displayData: PagingDisplayData<Value>
-  var error: SimpleError?
+  var displayData: PagingDisplayData<Value> = .init(items: [])
+  var error: SimpleError? = nil
   var isLoading: Bool = true
 }
 
@@ -33,6 +33,7 @@ enum InfiniteLoadingAction <Value: Identifiable & Equatable & Hashable>{
   case dataLoaded(PagingDisplayData<Value>)
   case nextPageLoaded(PagingDisplayData<Value>)
   case error(SimpleError)
+  case toastError(SimpleError)
 }
 
 @Reducer
@@ -74,8 +75,7 @@ struct InfiniteLoadingReducer<Value: Identifiable & Equatable & Hashable> {
             .map {
               return .nextPageLoaded($0)
             }.catch { error in
-              // we need to handle a toast here
-              return Just(InfiniteLoadingReducer.Action.error(error))
+              return Just(InfiniteLoadingReducer.Action.toastError(error))
             }
         }
       case .nextPageLoaded(let displayData):
@@ -83,6 +83,9 @@ struct InfiniteLoadingReducer<Value: Identifiable & Equatable & Hashable> {
         currentItems.append(contentsOf: displayData.items)
         let newDisplayData = PagingDisplayData.init(items: currentItems, pageInfo: displayData.pageInfo)
         state.displayData = newDisplayData
+        return .none
+      case .toastError(let error):
+        print(error) // Load toast error here
         return .none
       }
     }

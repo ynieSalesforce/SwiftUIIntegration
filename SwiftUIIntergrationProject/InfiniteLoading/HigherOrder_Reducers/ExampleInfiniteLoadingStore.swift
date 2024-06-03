@@ -28,7 +28,6 @@ struct ExampleInfiniteLoadingStore {
   @ObservableState
   struct State {
     var infiniteState: InfiniteLoadingState<ContentData>
-    var content: [ContentData]
   }
   
   enum Action {

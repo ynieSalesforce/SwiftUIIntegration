@@ -13,6 +13,7 @@ enum DemoType {
   case mix
   case swiftUI
   case infiniteLoading
+  case infiniteLoadingReusable
 }
 
 extension DemoType: CaseIterable {
@@ -26,6 +27,8 @@ extension DemoType: CaseIterable {
       return "SwiftUI and Composable Architecture"
     case .infiniteLoading:
       return "Infinite Loading"
+    case .infiniteLoadingReusable:
+      return "Infinite Loading with reusable component"
     }
   }
 }

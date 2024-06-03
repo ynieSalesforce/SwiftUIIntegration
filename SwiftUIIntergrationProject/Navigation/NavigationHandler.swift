@@ -19,6 +19,8 @@ extension UIViewController {
       navigateComposableView()
     case .infiniteLoading:
       navigateInfiniteLoading()
+    case .infiniteLoadingReusable:
+      navigateInfiniteLoadingReusable()
     }
   }
   
@@ -39,6 +41,11 @@ extension UIViewController {
   
   private func navigateInfiniteLoading() {
     let controller = InfiniteLoadingController()
+    navigationController?.pushViewController(controller, animated: true)
+  }
+  
+  private func navigateInfiniteLoadingReusable() {
+    let controller = ExampleInfiniteLoadingController()
     navigationController?.pushViewController(controller, animated: true)
   }
 }

@@ -27,3 +27,22 @@ class InfiniteLoadingController: UIViewController {
     }
   }
 }
+
+class ExampleInfiniteLoadingController: UIViewController {
+  private lazy var infiniteStore: StoreOf<ExampleInfiniteLoadingStore> = .init(
+    initialState: .init(infiniteState: InfiniteLoadingState())) {
+    ExampleInfiniteLoadingStore()
+  }
+  private lazy var contentView: ExampleInfiniteLoadingView = .init(store: infiniteStore)
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    let hosting = UIHostingController(rootView: contentView)
+    view.addSubview(hosting.view)
+    addChild(hosting)
+    hosting.view.snp.updateConstraints { make in
+      make.edges.equalTo(self.view)
+    }
+  }
+}
