@@ -8,15 +8,10 @@
 import Foundation
 import SwiftUI
 
-public struct PageInfo: Equatable, Codable {
-  public let hasNextPage: Bool
-  public let endCursor: String?
-}
-
 public protocol Pageable <Value> {
   associatedtype Value: Identifiable & Equatable
   var items: [Value] { get }
-  var pageInfo: PageInfo? { get set }
+  var pageInfo: PageInfo? { get }
 }
 
 struct InfiniteLoadingView<

@@ -9,27 +9,36 @@ import Foundation
 import ComposableArchitecture
 import Combine
 
-@ObservableState
-struct InfiniteLoadingState<Value: Identifiable & Equatable>: Equatable {
-  var items: [Value] = []
+public struct PagingDisplayData<Value: Identifiable & Equatable & Hashable>: Equatable {
+  var items: [Value]
   var pageInfo: PageInfo?
+}
+
+public struct PageInfo: Equatable, Codable {
+  public let hasNextPage: Bool
+  public let endCursor: String?
+}
+
+@ObservableState
+struct InfiniteLoadingState<Value: Identifiable & Equatable & Hashable>: Equatable {
+  var displayData: PagingDisplayData<Value>
   var error: SimpleError?
   var isLoading: Bool = true
 }
 
 @CasePathable
-enum InfiniteLoadingAction <Value: Identifiable & Equatable>{
+enum InfiniteLoadingAction <Value: Identifiable & Equatable & Hashable>{
   case loadInitialData
   case loadNextPage(PageInfo?)
-  case dataLoaded(any Pageable<Value>)
-  case nextPageLoaded(any Pageable<Value>)
+  case dataLoaded(PagingDisplayData<Value>)
+  case nextPageLoaded(PagingDisplayData<Value>)
   case error(SimpleError)
 }
 
 @Reducer
-struct InfiniteLoadingReducer<Value: Identifiable & Equatable> {
+struct InfiniteLoadingReducer<Value: Identifiable & Equatable & Hashable> {
   
-  let loadData: (PageInfo?) -> DataPublisher<any Pageable<Value>>
+  let loadData: (PageInfo?) -> DataPublisher<PagingDisplayData<Value>>
   
   private enum CancelID {
     case loadInfiniteData
@@ -43,14 +52,14 @@ struct InfiniteLoadingReducer<Value: Identifiable & Equatable> {
           loadData(nil)
             .map {
               return .dataLoaded($0)
-            }.catch { error in
+            }
+            .catch { error in
               return Just(InfiniteLoadingReducer.Action.error(error))
             }
         }.cancellable(id: CancelID.loadInfiniteData)
       case .dataLoaded(let displayData):
         state.isLoading = false
-        state.items = displayData.items
-        state.pageInfo = displayData.pageInfo
+        state.displayData = displayData
         return .none
       case .error(let error):
         state.isLoading = false
@@ -70,8 +79,10 @@ struct InfiniteLoadingReducer<Value: Identifiable & Equatable> {
             }
         }
       case .nextPageLoaded(let displayData):
-        state.items.append(contentsOf: displayData.items)
-        state.pageInfo = displayData.pageInfo
+        var currentItems = state.displayData.items
+        currentItems.append(contentsOf: displayData.items)
+        let newDisplayData = PagingDisplayData.init(items: currentItems, pageInfo: displayData.pageInfo)
+        state.displayData = newDisplayData
         return .none
       }
     }

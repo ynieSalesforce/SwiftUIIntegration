@@ -7,18 +7,6 @@
 
 import Foundation
 
-struct ContentDisplayModel: Pageable, Equatable {
-  typealias Value = ContentData
-  var pageInfo: PageInfo?
-  var items: [ContentData]
-}
-
-struct ContentData: Identifiable, Hashable, Equatable {
-  let id: String
-  let label: String
-  let content: String
-}
-
 extension ContentDisplayModel {
   static func createMock(
     numberOfItems: Int,

@@ -65,6 +65,7 @@
 		9BAA25772BC77D6B00AA42B3 /* TestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA25762BC77D6B00AA42B3 /* TestObserver.swift */; };
 		9BAA25792BC7815F00AA42B3 /* AddressServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA25782BC7815F00AA42B3 /* AddressServiceMock.swift */; };
 		9BAA257B2BC7842900AA42B3 /* MixViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA257A2BC7842900AA42B3 /* MixViewModelTests.swift */; };
+		9BBCABF62C0E046100DACA45 /* InfinitePagingDisplayDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCABF52C0E046100DACA45 /* InfinitePagingDisplayDataService.swift */; };
 		9BBD8CF62BBC560F00A5F295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */; };
 		9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */; };
 		9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD8CF92BBC560F00A5F295 /* ViewController.swift */; };
@@ -165,6 +166,7 @@
 		9BAA25762BC77D6B00AA42B3 /* TestObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestObserver.swift; sourceTree = "<group>"; };
 		9BAA25782BC7815F00AA42B3 /* AddressServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressServiceMock.swift; sourceTree = "<group>"; };
 		9BAA257A2BC7842900AA42B3 /* MixViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixViewModelTests.swift; sourceTree = "<group>"; };
+		9BBCABF52C0E046100DACA45 /* InfinitePagingDisplayDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinitePagingDisplayDataService.swift; sourceTree = "<group>"; };
 		9BBD8CF22BBC560F00A5F295 /* SwiftUIIntergrationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIIntergrationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBD8CF52BBC560F00A5F295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BBD8CF72BBC560F00A5F295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,14 +224,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9B056FE32C0C33B500240402 /* Reducers */ = {
+		9B056FE32C0C33B500240402 /* HigherOrder_Reducers */ = {
 			isa = PBXGroup;
 			children = (
 				9B056FE42C0C33C400240402 /* HigherOrderReducer.swift */,
 				9B12B7FF2C0D096B00637D77 /* InfiniteLoadingReducer.swift */,
 				9B12B8012C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift */,
 			);
-			path = Reducers;
+			path = HigherOrder_Reducers;
 			sourceTree = "<group>";
 		};
 		9B1FE3632BC0A08600F0A259 /* Models */ = {
@@ -338,7 +340,8 @@
 		9B93EACD2C0537500015D1D3 /* InfiniteLoading */ = {
 			isa = PBXGroup;
 			children = (
-				9B056FE32C0C33B500240402 /* Reducers */,
+				9BBCABF42C0E044A00DACA45 /* Services */,
+				9B056FE32C0C33B500240402 /* HigherOrder_Reducers */,
 				9B93EAD62C0540B30015D1D3 /* InfiniteLoadingComponent */,
 				9B93EAD12C0537AA0015D1D3 /* SwiftUIView */,
 				9B93EAD02C0537A00015D1D3 /* Controller */,
@@ -380,6 +383,14 @@
 				9B98F4712BCDE523008B5876 /* ListWeatherStore.swift */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		9BBCABF42C0E044A00DACA45 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9BBCABF52C0E046100DACA45 /* InfinitePagingDisplayDataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		9BBD8CE92BBC560F00A5F295 = {
@@ -659,6 +670,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B056FE52C0C33C400240402 /* HigherOrderReducer.swift in Sources */,
+				9BBCABF62C0E046100DACA45 /* InfinitePagingDisplayDataService.swift in Sources */,
 				9BD0A9022BC08ADA00953018 /* UIKitReactiveController.swift in Sources */,
 				9B12B8022C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift in Sources */,
 				9B1FE3742BC49BAE00F0A259 /* CurrentWeatherDisplayData.swift in Sources */,
@@ -1097,7 +1109,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.9.2;
+				minimumVersion = 1.10.4;
 			};
 		};
 		9BD0A8E12BBE185700953018 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
