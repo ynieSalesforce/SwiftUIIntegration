@@ -21,6 +21,8 @@ extension UIViewController {
       navigateInfiniteLoading()
     case .infiniteLoadingReusable:
       navigateInfiniteLoadingReusable()
+    case .sectionTabBar:
+      navigateTabBarStore()
     }
   }
   
@@ -46,6 +48,11 @@ extension UIViewController {
   
   private func navigateInfiniteLoadingReusable() {
     let controller = ExampleInfiniteLoadingController()
+    navigationController?.pushViewController(controller, animated: true)
+  }
+  
+  private func navigateTabBarStore() {
+    let controller = SectionedTabbarController()
     navigationController?.pushViewController(controller, animated: true)
   }
 }

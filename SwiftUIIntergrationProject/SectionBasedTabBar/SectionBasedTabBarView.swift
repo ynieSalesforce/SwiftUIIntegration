@@ -48,6 +48,8 @@ struct SectionBasedTabBarView<
       TabSectionPickerView<TabType>.init(selectedTab:
                                           $store.selectedTab.sending(\.selectTab),
                                          types: store.types)
+      
+      buildTabView()
     }
   }
   
@@ -58,7 +60,9 @@ struct SectionBasedTabBarView<
         ScrollViewReader { proxy in
           HStack(alignment: .top) {
             ForEach(store.types) { tabType in
-              loadSectionView(tabType).readHeight()
+              loadSectionView(tabType)
+                .frame(width: reader.size.width)
+                .readHeight()
             }
           }
             // Handles tapping on picker
@@ -67,10 +71,15 @@ struct SectionBasedTabBarView<
               proxy.scrollTo(newValue, anchor: .leading)
             }
           })
-            // handles setting picker value when scroll view stops
+          // handles setting picker value when scroll view stops
           .onReceive(publisher) { value in
             if let tagType = store.types.first(where: { item in
-              item.tagIndex == Int(value)
+              if value > 0, item.tagIndex > 0 {
+                return true
+              } else if value == 0, item.tagIndex == 0 {
+                return true
+              }
+              return false
             }) {
               store.send(.selectTab(tagType))
             }
