@@ -19,6 +19,11 @@ struct SectionTabViewExample: View {
         store: store.scope(state: \.tabState, action: \.tabBarAction),
         cellMaxHeight: $height,
         loadSectionView: sectionView)
+      .padding(.bottom, .tdsMedium)
+      
+      Text("To ensure that spacing is correct")
+        .foregroundColor(.secondary)
+        .background(Color.blue)
       
       Spacer()
     }
@@ -27,9 +32,25 @@ struct SectionTabViewExample: View {
   @ViewBuilder
   private func sectionView(tabBarType: TabSectionExample) -> some View {
     VStack(spacing: .tdsNone) {
-      Text(tabBarType.labelText)
+      switch tabBarType {
+      case .first:
+        currentWeatherView()
+      case .second:
+        forecastView()
+      }
     }
-    
+  }
+  
+  @ViewBuilder 
+  private func currentWeatherView() -> some View {
+    let data = CurrentWeatherDisplayData.createMock()!
+    CurrentWeatherView(currentWeather: data)
+  }
+  
+  @ViewBuilder
+  private func forecastView() -> some View {
+    let data = ForecastDisplayData.createMock()?.list.first
+    ForecastWeatherCell(listItem: data!)
   }
 }
 
