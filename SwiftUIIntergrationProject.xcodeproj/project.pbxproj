@@ -51,6 +51,8 @@
 		9B652A132BC851950038ADFC /* CurrentWeatherViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B652A122BC851950038ADFC /* CurrentWeatherViewSnapshotTests.swift */; };
 		9B652A152BC851E10038ADFC /* WeatherStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B652A142BC851E10038ADFC /* WeatherStoreTests.swift */; };
 		9B7651D12BEF1C5A009CCC56 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7651D02BEF1C5A009CCC56 /* Double+Extensions.swift */; };
+		9B7F65322C18CD17002083DD /* SectionBasedTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F65312C18CD17002083DD /* SectionBasedTabBarView.swift */; };
+		9B7F65342C18CF46002083DD /* SectionBasedTabBarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F65332C18CF46002083DD /* SectionBasedTabBarStore.swift */; };
 		9B93EACF2C0537620015D1D3 /* InfiniteLoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93EACE2C0537620015D1D3 /* InfiniteLoadingController.swift */; };
 		9B93EAD32C0538590015D1D3 /* InfiniteContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93EAD22C0538590015D1D3 /* InfiniteContentView.swift */; };
 		9B93EAD52C053B350015D1D3 /* InfiniteLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93EAD42C053B350015D1D3 /* InfiniteLoadingView.swift */; };
@@ -153,6 +155,8 @@
 		9B652A122BC851950038ADFC /* CurrentWeatherViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewSnapshotTests.swift; sourceTree = "<group>"; };
 		9B652A142BC851E10038ADFC /* WeatherStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStoreTests.swift; sourceTree = "<group>"; };
 		9B7651D02BEF1C5A009CCC56 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		9B7F65312C18CD17002083DD /* SectionBasedTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBasedTabBarView.swift; sourceTree = "<group>"; };
+		9B7F65332C18CF46002083DD /* SectionBasedTabBarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBasedTabBarStore.swift; sourceTree = "<group>"; };
 		9B93EACE2C0537620015D1D3 /* InfiniteLoadingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteLoadingController.swift; sourceTree = "<group>"; };
 		9B93EAD22C0538590015D1D3 /* InfiniteContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteContentView.swift; sourceTree = "<group>"; };
 		9B93EAD42C053B350015D1D3 /* InfiniteLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteLoadingView.swift; sourceTree = "<group>"; };
@@ -340,6 +344,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		9B7F65302C18CC34002083DD /* SectionBasedTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				9B7F65352C18D9E1002083DD /* Example */,
+				9B7F65312C18CD17002083DD /* SectionBasedTabBarView.swift */,
+				9B7F65332C18CF46002083DD /* SectionBasedTabBarStore.swift */,
+			);
+			path = SectionBasedTabBar;
+			sourceTree = "<group>";
+		};
+		9B7F65352C18D9E1002083DD /* Example */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		9B93EACD2C0537500015D1D3 /* InfiniteLoading */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +440,7 @@
 		9BBD8CF42BBC560F00A5F295 /* SwiftUIIntergrationProject */ = {
 			isa = PBXGroup;
 			children = (
+				9B7F65302C18CC34002083DD /* SectionBasedTabBar */,
 				9B93EACD2C0537500015D1D3 /* InfiniteLoading */,
 				9B7651CF2BEF08F2009CCC56 /* Resources */,
 				9B327CC12BC8CE120031A858 /* ModifiersExtensions */,
@@ -677,6 +699,7 @@
 				9B12B8022C0D261D00637D77 /* ExampleInfiniteLoadingStore.swift in Sources */,
 				9BBCABF82C0E1ABA00DACA45 /* ExampleInfiniteLoadingView.swift in Sources */,
 				9B1FE3742BC49BAE00F0A259 /* CurrentWeatherDisplayData.swift in Sources */,
+				9B7F65342C18CF46002083DD /* SectionBasedTabBarStore.swift in Sources */,
 				9B7651D12BEF1C5A009CCC56 /* Double+Extensions.swift in Sources */,
 				9B1FE3B22BC722EF00F0A259 /* ComposableView.swift in Sources */,
 				9B1FE3952BC5DC2800F0A259 /* ForecastDisplayDataMock.swift in Sources */,
@@ -700,6 +723,7 @@
 				9BD0A8ED2BBE1C7100953018 /* MainMenuView.swift in Sources */,
 				9B1FE3912BC5D68500F0A259 /* OnLoad.swift in Sources */,
 				9BBCABFA2C0E1B7C00DACA45 /* InfiniteLoadingComponent.swift in Sources */,
+				9B7F65322C18CD17002083DD /* SectionBasedTabBarView.swift in Sources */,
 				9B1FE3B02BC6FE0F00F0A259 /* WeatherStore.swift in Sources */,
 				9BBD8CFA2BBC560F00A5F295 /* ViewController.swift in Sources */,
 				9B93EACF2C0537620015D1D3 /* InfiniteLoadingController.swift in Sources */,

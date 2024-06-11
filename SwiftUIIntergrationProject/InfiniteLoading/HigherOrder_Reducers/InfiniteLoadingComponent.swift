@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import ComposableArchitecture
 
 struct InfiniteLoadingComponent<
   ContentView: View,
@@ -15,7 +16,7 @@ struct InfiniteLoadingComponent<
   
   var displayData: PagingDisplayData<Value>
   @ViewBuilder let contentView: (Value) -> ContentView
-  let viewMoreAction: () -> Void
+  @Bindable var store: StoreOf<InfiniteLoadingReducer<Value>>
   
   var body: some View {
     VStack {
@@ -26,7 +27,9 @@ struct InfiniteLoadingComponent<
         if let pageInfo = displayData.pageInfo,
            pageInfo.hasNextPage {
           loadingCell()
-            .onAppear(perform: viewMoreAction)
+            .onAppear {
+              store.send(.loadNextPage(store.displayData.pageInfo))
+            }
         }
       }
     }

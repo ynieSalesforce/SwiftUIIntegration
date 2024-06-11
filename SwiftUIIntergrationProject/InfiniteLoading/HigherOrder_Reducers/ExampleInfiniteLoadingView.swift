@@ -25,9 +25,8 @@ struct ExampleInfiniteLoadingView: View {
         displayData: store.infiniteState.displayData,
         contentView: { content in
           InfiniteListItem(content: content)
-        }, viewMoreAction: {
-          store.send(.infiniteAction(.loadNextPage(store.infiniteState.displayData.pageInfo)))
-        })
+        },
+        store: store.scope(state: \.infiniteState, action: \.infiniteAction))
     }
   }
 }
