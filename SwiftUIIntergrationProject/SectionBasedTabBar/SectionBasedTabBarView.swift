@@ -45,20 +45,10 @@ struct SectionBasedTabBarView<
   
   var body: some View {
     VStack(alignment: .leading, spacing: .tdsNone) {
-      
+      TabSectionPickerView<TabType>.init(selectedTab:
+                                          $store.selectedTab.sending(\.selectTab),
+                                         types: store.types)
     }
-  }
-  
-  @ViewBuilder
-  private func pickerView(@Binding tabType: TabType) -> some View {
-    Picker("", selection: $tabType) {
-      Text(tabType.labelText).tag(tabType.tagIndex)
-      Text(tabType.labelText).tag(tabType.tagIndex)
-    }
-    .pickerStyle(.segmented)
-    .padding(.horizontal, .tdsMedium)
-    .padding(.bottom, .tdsMedium)
-    .background(Color(uiColor: .systemBackground))
   }
   
   @ViewBuilder
@@ -78,8 +68,12 @@ struct SectionBasedTabBarView<
             }
           })
             // handles setting picker value when scroll view stops
-          .onReceive(publisher) {
-            store.send(.selectedTab(Int($0)))
+          .onReceive(publisher) { value in
+            if let tagType = store.types.first(where: { item in
+              item.tagIndex == Int(value)
+            }) {
+              store.send(.selectTab(tagType))
+            }
           }.detectPosition(scrollId: scrollId) { detector.send($0) }
             // Sets section height
             .onPreferenceChange(CellHeightPreferenceKey.self) {
@@ -99,16 +93,22 @@ struct SectionBasedTabBarView<
   }
 }
 
-//#Preview {
-//  let store = StoreOf<StampsStore>.init(
-//    initialState: .init(),
-//    reducer: { StampsStore(stampViewLocation: .profile, delegate: nil) }
-//  )
-//  return StampsTabView(store: .constant(store), cellMaxHeight: .constant(nil))
-//    .onLoad {
-//      store.send(.loadData("test123", true))
-//    }
-//}
+private struct TabSectionPickerView<TabType: Identifiable & Equatable & Labeled>
+: View {
+  @Binding var selectedTab: TabType
+  var types: [TabType]
+  var body: some View {
+    Picker("", selection: $selectedTab) {
+      ForEach(types) {
+        Text($0.labelText).tag($0.tagIndex)
+      }
+    }
+    .pickerStyle(.segmented)
+    .padding(.horizontal, .tdsMedium)
+    .padding(.bottom, .tdsMedium)
+    .background(Color(uiColor: .systemBackground))
+  }
+}
 
 struct ViewOffsetKey: PreferenceKey {
   typealias Value = CGFloat

@@ -21,14 +21,14 @@ struct SectionBasedTabBarStore <TabType: Identifiable & Equatable & Labeled>{
   
   @CasePathable
   enum Action {
-    case selectedTab(Int)
+    case selectTab(TabType)
   }
   
   var body: some Reducer<State, Action> {
     Reduce { state, action in
       switch action {
-      case .selectedTab(let index):
-        if let type = state.types.first(where: { $0.tagIndex == index } ) {
+      case .selectTab(let index):
+        if let type = state.types.first(where: { $0 == index } ) {
           state.selectedTab = type
         }
         return .none
