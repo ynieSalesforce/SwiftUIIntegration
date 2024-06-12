@@ -66,11 +66,11 @@ struct SectionBasedTabBarView<
             }
           }
             // Handles tapping on picker
-          .onChange(of: store.state.selectedTab, { _, newValue in
+          .onChange(of: store.state.selectedTab) { target in
             withAnimation {
-              proxy.scrollTo(newValue, anchor: .leading)
+              proxy.scrollTo(target, anchor: .leading)
             }
-          })
+          }
           // handles setting picker value when scroll view stops
           .onReceive(publisher) { value in
             if let tagType = store.types.first(where: { item in

@@ -10,9 +10,13 @@ import SwiftUI
 import ComposableArchitecture
 
 class SectionedTabbarController: UIViewController {
-  private lazy var tabBarStore: StoreOf<SectionTabStoreExample> = .init(initialState: .init(
-    tabState:
-        .init(types: [TabSectionExample.first, TabSectionExample.second], selectedTab: .first)), reducer: {
+  private lazy var tabBarStore: StoreOf<SectionTabStoreExample> = 
+    .init(initialState: .init(
+      tabState:
+        .init(
+          types: [TabSectionExample.first, TabSectionExample.second],
+          selectedTab: .first) // Initial Selected Tab
+    ), reducer: {
           SectionTabStoreExample()
         })
   private lazy var contentView: SectionTabViewExample = .init(store: tabBarStore)
