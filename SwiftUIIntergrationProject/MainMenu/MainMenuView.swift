@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import ComposableArchitecture
 
 enum DemoType {
   case uiKit
@@ -15,6 +16,7 @@ enum DemoType {
   case infiniteLoading
   case infiniteLoadingReusable
   case sectionTabBar
+  case sampleNavigation
 }
 
 extension DemoType: CaseIterable {
@@ -32,6 +34,8 @@ extension DemoType: CaseIterable {
       return "Infinite Loading with reusable component"
     case .sectionTabBar:
       return "Section Tab Bar"
+    case .sampleNavigation:
+      return "Sample Navigation Demo"
     }
   }
 }
@@ -43,9 +47,10 @@ protocol MainMenuViewDelegate {
 struct MainMenuView: View {
   private let options: [DemoType] = DemoType.allCases
   let delegate: MainMenuViewDelegate?
+  @Bindable var store: StoreOf<MainMenu>
   
   var body: some View {
-    VStack {
+    LazyVStack {
       ForEach(options, id: \.self) { option in
         VStack {
           menuItemView(with: option)
@@ -54,7 +59,6 @@ struct MainMenuView: View {
           }
         }
       }
-      
       Spacer()
     }
   }
@@ -72,7 +76,11 @@ struct MainMenuView: View {
         .font(.title2)
         .padding(.trailing, .tdsMedium)
     }.onTapGesture {
-      delegate?.navigate(to: type)
+      if type == .sampleNavigation {
+        store.send(.loadSampleView("I'm getting a real job"))
+      } else {
+        delegate?.navigate(to: type)
+      }
     }
   }
 }

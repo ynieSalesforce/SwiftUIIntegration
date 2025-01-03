@@ -23,6 +23,8 @@ extension UIViewController {
       navigateInfiniteLoadingReusable()
     case .sectionTabBar:
       navigateTabBarStore()
+    case .sampleNavigation:
+      break
     }
   }
   

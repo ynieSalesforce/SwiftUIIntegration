@@ -52,8 +52,14 @@ struct PrimaryButtonStyle: ButtonStyle {
 
 #Preview ("Primary button") {
   VStack {
+    Button("Large Button") {
+      // Some action
+    }.primaryButton(size: .large)
+      .padding(.bottom, .tdsMedium)
+    
     Button { } label: {
-      Text("Large button")
+      Label("Large Button", systemImage: "paperplane")
+        .imageScale(.large)
     }.primaryButton(size: .large)
       .padding(.bottom, .tdsMedium)
     
