@@ -12,7 +12,7 @@ protocol HostControllerDelegate {
   func hideNavigation(hide: Bool)
 }
 
-extension HostControllerDelegate where Self: BaseViewController {
+extension HostControllerDelegate where Self: ViewController {
   func hideNavigation(hide: Bool){
     navigationController?.setNavigationBarHidden(hide, animated: false)
   }

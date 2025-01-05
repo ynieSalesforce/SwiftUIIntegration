@@ -19,9 +19,8 @@ struct MainMenu {
   @ObservableState
   struct State: Equatable {
     var path = StackState<Path.State>()
+    
     @Presents var destination: Destination.State?
-    var desintation: Destination2?
-    var item: String?
   }
   
   @Reducer(state: .equatable)
@@ -29,31 +28,28 @@ struct MainMenu {
     case sampleNav(SampleNavigation)
   }
   
-  @CasePathable
-  @dynamicMemberLookup
-  enum Destination2: Equatable {
-    static func == (lhs: MainMenu.Destination2, rhs: MainMenu.Destination2) -> Bool {
-      return true
-    }
-    
-    case sampleNav(SampleNavigation)
-  }
-  
   enum Action {
     case path(StackActionOf<Path>)
-    case loadSampleView(String)
+    case loadSampleStackView(String)
+    case loadSampleTreeView(String)
+    case destination(PresentationAction<Destination.Action>)
   }
   
   var body: some Reducer<State, Action> {
     Reduce { state, action in
       switch action {
-      case let .loadSampleView(input):
-          // do one of the following
+      case let .loadSampleStackView(input):
         state.path.append(.sampleNavDestination(.init(id: input)))
+        return .none
+      case let .path(.element(id: id, action: .sampleNavDestination(.tap))):
+        state.path.pop(from: id)
+        return .none
+      case .loadSampleTreeView(let input):
         state.destination = .sampleNav(.init(id: input))
         return .none
       default: return .none
       }
     }.forEach(\.path, action: \.path)
+      .ifLet(\.$destination, action: \.destination)
   }
 }

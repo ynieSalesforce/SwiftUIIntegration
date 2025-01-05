@@ -17,9 +17,7 @@ class MainMenuModel {
   var menuState: MainMenu.State
   var mainMenu: StoreOf<MainMenu>
   var alert: String?
-  //var destination: MainMenu.Destination2?
 
-  
   init(menuState: MainMenu.State = .init(), alert: String? = nil) {
     self.menuState = menuState
     self.mainMenu = .init(initialState: menuState) {
@@ -29,11 +27,47 @@ class MainMenuModel {
   }
 }
 
+struct MainMenuView: View {
+  @Bindable var store: StoreOf<MainMenu>
+  
+  var body: some View {
+    NavigationStack (
+      path: $store.scope(state: \.path, action: \.path)
+    ) {
+        VStack(spacing: 20) {
+          Button (action: {
+            store.send(.loadSampleStackView("test1"))
+          }, label: {
+            Text("Navigate to Sample Stack View")
+          }).padding(.top, 20)
+          
+          Button (action: {
+            store.send(.loadSampleTreeView("test2"))
+          }, label: {
+            Text("Navigate to Sample Tree View")
+          }).padding(.top, 20)
+          
+          Spacer()
+        }.navigationDestination(
+          item: $store.scope(
+            state: \.destination?.sampleNav,
+            action: \.destination.sampleNav)) { store in
+              SampleNavigationView(store: store)
+            }
+    } destination: { store in
+      switch store.case {
+      case .sampleNavDestination(let store):
+        SampleNavigationView(store: store)
+      }
+    }
+  }
+}
+
 // View Controller
 class ViewController: UIViewController {
   @UIBindable var model: MainMenuModel = .init()
 
-  private lazy var menuView: UIHostingController<MainMenuView> = .init(rootView: .init(delegate: self, store: model.mainMenu))
+  private lazy var menuView: UIHostingController<MainMenuView> = .init(rootView: .init(store: model.mainMenu))
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,18 +77,12 @@ class ViewController: UIViewController {
       make.edges.equalTo(view)
     }
     
-    present(item: $model.mainMenu.desintation) { sampleNav in
-      let model = SampleNavigationModel(sampleNav: sampleNav)
-      let vc = SampleNavigationController(model: model)
-      return vc
-    }
+//    present(item: $model.mainMenu.desintation) { sampleNav in
+//      let model = SampleNavigationModel(sampleNav: sampleNav)
+//      let vc = SampleNavigationController(model: model)
+//      return vc
+//    }
     
     navigationItem.title = "SwiftUI Demos"
-  }
-}
-
-extension ViewController: MainMenuViewDelegate {
-  func navigate(to destination: DemoType) {
-    handle(action: destination)
   }
 }

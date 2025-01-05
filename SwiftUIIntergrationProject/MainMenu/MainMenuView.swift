@@ -40,47 +40,40 @@ extension DemoType: CaseIterable {
   }
 }
 
-protocol MainMenuViewDelegate {
-  func navigate(to destination: DemoType)
-}
-
-struct MainMenuView: View {
-  private let options: [DemoType] = DemoType.allCases
-  let delegate: MainMenuViewDelegate?
-  @Bindable var store: StoreOf<MainMenu>
-  
-  var body: some View {
-    LazyVStack {
-      ForEach(options, id: \.self) { option in
-        VStack {
-          menuItemView(with: option)
-          if option != options.last {
-            Divider()
-          }
-        }
-      }
-      Spacer()
-    }
-  }
-  
-  @ViewBuilder
-  private func menuItemView(with type: DemoType) -> some View {
-    HStack(alignment: .center) {
-      Text(type.title)
-        .padding([.leading, .top, .bottom], .tdsMedium)
-        .font(.title2)
-      
-      Spacer()
-      
-      Image(systemName: "chevron.right")
-        .font(.title2)
-        .padding(.trailing, .tdsMedium)
-    }.onTapGesture {
-      if type == .sampleNavigation {
-        store.send(.loadSampleView("I'm getting a real job"))
-      } else {
-        delegate?.navigate(to: type)
-      }
-    }
-  }
-}
+//struct MainMenuView: View {
+//  private let options: [DemoType] = DemoType.allCases
+//  @Bindable var store: StoreOf<MainMenu>
+//  
+//  var body: some View {
+//    LazyVStack {
+//      ForEach(options, id: \.self) { option in
+//        VStack {
+//          menuItemView(with: option)
+//          if option != options.last {
+//            Divider()
+//          }
+//        }
+//      }
+//      Spacer()
+//    }
+//  }
+//  
+//  @ViewBuilder
+//  private func menuItemView(with type: DemoType) -> some View {
+//    HStack(alignment: .center) {
+//      Text(type.title)
+//        .padding([.leading, .top, .bottom], .tdsMedium)
+//        .font(.title2)
+//      
+//      Spacer()
+//      
+//      Image(systemName: "chevron.right")
+//        .font(.title2)
+//        .padding(.trailing, .tdsMedium)
+//    }.onTapGesture {
+//      if type == .sampleNavigation {
+//        store.send(.loadSampleView("I'm getting a real job"))
+//      }
+//    }
+//  }
+//}

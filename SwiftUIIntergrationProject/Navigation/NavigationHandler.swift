@@ -29,32 +29,20 @@ extension UIViewController {
   }
   
   private func navigateUIKitView() {
-    let controller = UIKitReactiveController()
-    navigationController?.pushViewController(controller, animated: true)
   }
   
   private func navigateMixedView() {
-    let controller = SwiftUIMixController()
-    navigationController?.pushViewController(controller, animated: true)
   }
   
   private func navigateComposableView() {
-    let controller = WeatherComposableController()
-    navigationController?.pushViewController(controller, animated: true)
   }
   
   private func navigateInfiniteLoading() {
-    let controller = InfiniteLoadingController()
-    navigationController?.pushViewController(controller, animated: true)
   }
   
   private func navigateInfiniteLoadingReusable() {
-    let controller = ExampleInfiniteLoadingController()
-    navigationController?.pushViewController(controller, animated: true)
   }
   
   private func navigateTabBarStore() {
-    let controller = SectionedTabbarController()
-    navigationController?.pushViewController(controller, animated: true)
   }
 }
