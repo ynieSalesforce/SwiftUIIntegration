@@ -44,9 +44,9 @@ struct MainMenu {
       case let .path(.element(id: id, action: .sampleNavDestination(.tap))):
         state.path.pop(from: id)
         return .none
-      case .loadSampleTreeView(let input):
-        state.destination = .sampleNav(.init(id: input))
-        return .none
+//      case .loadSampleTreeView(let input):
+//        state.destination = .sampleNav(.init(id: input))
+//        return .none
       default: return .none
       }
     }.forEach(\.path, action: \.path)
