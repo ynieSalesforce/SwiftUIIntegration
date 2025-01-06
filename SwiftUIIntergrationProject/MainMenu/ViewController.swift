@@ -13,6 +13,52 @@ import UIKitNavigation
 import SwiftNavigation
 import Combine
 
+open class StateStoreViewController<State: Equatable, Action>: UIViewController {
+  
+    // MARK: Properties
+  
+    /// The store powering the view controller.
+  @UIBindable open var model: Store<State, Action>
+  
+    /// Keeps track of subscriptions.
+  open var cancellables: Set<AnyCancellable> = []
+  
+    // MARK: Initialization
+  
+    /// Creates a new store view controller with the given store.
+    ///
+    /// - Parameter store: The store to use with the view controller.
+    ///
+    /// - Returns: A new view controller.
+  public init(store: Store<State, Action>) {
+    self.model = store
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  @available(*, unavailable) public required init?(coder: NSCoder) {
+    fatalError("Not implemented")
+  }
+  
+}
+
+var appReducer: some Reducer<MainMenu.State, MainMenu.Action> {
+  Reduce { state, action in
+    switch action {
+    case let .loadSampleStackView(input):
+      state.path.append(.sampleNavDestination(.init(id: input)))
+      return .none
+    case let .path(.element(id: id, action: .sampleNavDestination(.tap))):
+      state.path.pop(from: id)
+      return .none
+    case .loadSampleTreeView(let input):
+      state.destination = .sampleNav(.init(id: input))
+      return .none
+    default: return .none
+    }
+  }.forEach(\.path, action: \.path)
+    .ifLet(\.$destination, action: \.destination)
+}
+
 struct MainMenuView: View {
   @Bindable var store: StoreOf<MainMenu>
   
@@ -35,12 +81,12 @@ struct MainMenuView: View {
           
           Spacer()
         }
-//        .navigationDestination(
-//          item: $store.scope(
-//            state: \.destination?.sampleNav,
-//            action: \.destination.sampleNav)) { store in
-//              SampleNavigationView(store: store)
-//            }
+        .navigationDestination(
+          item: $store.scope(
+            state: \.destination?.sampleNav,
+            action: \.destination.sampleNav)) { store in
+              SampleNavigationView(store: store)
+            }
     } destination: { store in
       switch store.case {
       case .sampleNavDestination(let store):
@@ -73,6 +119,7 @@ class MainMenuModel {
   }
   
   private func setupBindings() {
+    
     mainMenu.publisher.destination.sink { _ in
       
     } receiveValue: { state in
@@ -87,10 +134,8 @@ class MainMenuModel {
 }
 
 // Hosting View Controller
-class MainMenuHostingController: UIViewController {
-  @UIBindable var model: MainMenuModel = .init()
-
-  private lazy var menuView: UIHostingController<MainMenuView> = .init(rootView: .init(store: model.mainMenu))
+class MainMenuHostingController: StateStoreViewController<MainMenu.State, MainMenu.Action> {
+  private lazy var menuView: UIHostingController<MainMenuView> = .init(rootView: .init(store: model))
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -100,49 +145,41 @@ class MainMenuHostingController: UIViewController {
       make.edges.equalTo(view)
     }
     
-    navigationDestination(item: $model.destination) { model in
-      switch model {
-      case .sampleNav(let state):
-        SampleNavigationController(model: .init(sampleNav: .init(initialState: state, reducer:  {
-          SampleNavigation()
-        })))
-      }
-    }
-    
-    present(item: $model.alert, id: \.self) { sampleNav in
-      let model = SampleNavigationModel(sampleNav: .init(initialState: .init(id: "Test123"), reducer: {
-        SampleNavigation()
-      }))
-      let vc = SampleNavigationController(model: model)
-      return vc
-    }
-    
+//
+//    navigationDestination(item: $model.destination) { model in
+//      switch model {
+//      case .sampleNav(let state):
+//        SampleNavigationController(model: .init(sampleNav: .init(initialState: state, reducer:  {
+//          SampleNavigation()
+//        })))
+//      }
+//    }
     
     navigationItem.title = "SwiftUI Demos"
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    let button = UIButton(type: .system, primaryAction: UIAction(title: "Update Alert", handler: { [weak self] _ in
-      self?.model.alert = "Test"
-    }))
-    button.setTitle("UIKit Button", for: .normal)
-    
-    view.addSubview(button)
-    button.snp.updateConstraints { make in
-      make.leading.trailing.equalTo(view)
-      make.centerY.equalTo(view)
-    }
-    
-    let button2 = UIButton(type: .system, primaryAction: UIAction(title: "Update Destination", handler: { [weak self] _ in
-      self?.model.destinationUIKit = .sampleNav("Input")
-    }))
-    button2.setTitle("Update Destination", for: .normal)
-    view.addSubview(button2)
-    button2.snp.updateConstraints { make in
-      make.leading.trailing.equalTo(view)
-      make.centerY.equalTo(view).offset(30)
-    }
-  }
+//  override func viewWillAppear(_ animated: Bool) {
+//    super.viewWillAppear(animated)
+//    
+//    let button = UIButton(type: .system, primaryAction: UIAction(title: "Update Alert", handler: { [weak self] _ in
+//      self?.model.alert = "Test"
+//    }))
+//    button.setTitle("UIKit Button", for: .normal)
+//    
+//    view.addSubview(button)
+//    button.snp.updateConstraints { make in
+//      make.leading.trailing.equalTo(view)
+//      make.centerY.equalTo(view)
+//    }
+//    
+//    let button2 = UIButton(type: .system, primaryAction: UIAction(title: "Update Destination", handler: { [weak self] _ in
+//      self?.model.destinationUIKit = .sampleNav("Input")
+//    }))
+//    button2.setTitle("Update Destination", for: .normal)
+//    view.addSubview(button2)
+//    button2.snp.updateConstraints { make in
+//      make.leading.trailing.equalTo(view)
+//      make.centerY.equalTo(view).offset(30)
+//    }
+//  }
 }
