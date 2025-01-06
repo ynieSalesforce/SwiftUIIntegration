@@ -11,6 +11,7 @@ import SnapKit
 import ComposableArchitecture
 import UIKitNavigation
 import SwiftNavigation
+import Combine
 
 struct MainMenuView: View {
   @Bindable var store: StoreOf<MainMenu>
@@ -33,12 +34,13 @@ struct MainMenuView: View {
           }).padding(.top, 20)
           
           Spacer()
-        }.navigationDestination(
-          item: $store.scope(
-            state: \.destination?.sampleNav,
-            action: \.destination.sampleNav)) { store in
-              SampleNavigationView(store: store)
-            }
+        }
+//        .navigationDestination(
+//          item: $store.scope(
+//            state: \.destination?.sampleNav,
+//            action: \.destination.sampleNav)) { store in
+//              SampleNavigationView(store: store)
+//            }
     } destination: { store in
       switch store.case {
       case .sampleNavDestination(let store):
@@ -53,18 +55,34 @@ struct MainMenuView: View {
 class MainMenuModel {
   var mainMenu: StoreOf<MainMenu>
   var alert: String?
-  var destination: Destination?
+  var destination: MainMenu.Destination.State?
+  var destinationUIKit: Destination?
+  var cancellables: Set<AnyCancellable> = []
   
   init(menuState: MainMenu.State = .init(), alert: String? = nil) {
     self.mainMenu = .init(initialState: menuState) {
       MainMenu()
     }
     self.alert = alert
+    setupBindings()
   }
   
   @CasePathable
   enum Destination {
     case sampleNav(String)
+  }
+  
+  private func setupBindings() {
+    mainMenu.publisher.destination.sink { _ in
+      
+    } receiveValue: { state in
+      state.publisher.sink { _ in
+        
+      } receiveValue: { destination in
+        self.destination = destination
+      }.store(in: &self.cancellables)
+
+    }.store(in: &cancellables)
   }
 }
 
@@ -82,14 +100,13 @@ class MainMenuHostingController: UIViewController {
       make.edges.equalTo(view)
     }
     
-    navigationDestination(item: $model.mainMenu.destination) { model in
-      SampleNavigationController(model: .init(sampleNav: model))
-    }
-    
-    navigationDestination(item: $model.destination.sampleNav) { input in
-      SampleNavigationController(model: .init(sampleNav: .init(initialState: .init(id: input), reducer: {
-        SampleNavigation()
-      })))
+    navigationDestination(item: $model.destination) { model in
+      switch model {
+      case .sampleNav(let state):
+        SampleNavigationController(model: .init(sampleNav: .init(initialState: state, reducer:  {
+          SampleNavigation()
+        })))
+      }
     }
     
     present(item: $model.alert, id: \.self) { sampleNav in
@@ -119,7 +136,7 @@ class MainMenuHostingController: UIViewController {
     }
     
     let button2 = UIButton(type: .system, primaryAction: UIAction(title: "Update Destination", handler: { [weak self] _ in
-      self?.model.destination = .sampleNav("Input")
+      self?.model.destinationUIKit = .sampleNav("Input")
     }))
     button2.setTitle("Update Destination", for: .normal)
     view.addSubview(button2)
